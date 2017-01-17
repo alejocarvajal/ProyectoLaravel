@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace NewsGame\Http\Controllers\Auth;
 
-use App\User;
+use NewsGame\User;
 use Validator;
-use App\Http\Controllers\Controller;
+use NewsGame\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller

@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace NewsGame\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use NewsGame\User;
 class AdminController extends Controller
 {
     /**
@@ -13,7 +13,8 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return "Hola desde controlador Admin";
+        $users = User::all();
+        return view('admin.index',['usuarios'=>$users]);
     }
 
     /**
@@ -34,10 +35,12 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        $nombre= $request->name;
-        $email = $request->email;
-        $password= $request->password;
-        return "$nombre - $email - $password";
+        $user= new User();
+        $user->name= $request->name;
+        $user->email = $request->email;
+        $user->password= bcrypt($request->password);
+        $user->save();
+        return "Usuario agregado correctamente!";
     }
 
     /**
