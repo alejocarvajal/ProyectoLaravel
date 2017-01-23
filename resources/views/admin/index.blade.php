@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Index Admin</title>
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-</head>
-<body>
-	<div class="container">
+@extends('layouts.admin')
+
+@section('pera')
 		<h1 class="text-center text-uppercase">Estos son los usuarios registrados</h1>
 		<table class="table table-hover">
 			<th>nombre</th>
@@ -20,6 +15,4 @@
 			@endforeach
 		</table>
 		<a href="/admin/create" class="btn btn-info">Agregar usuario</a>
-	</div>
-</body>
-</html>
+@endsection
