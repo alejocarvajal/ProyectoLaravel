@@ -94,7 +94,7 @@
      </nav>
 
         <div id="page-wrapper">
-            @yield('pera')
+            @yield('contenido')
         </div>
 
     </div>

@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('pera')
+@section('contenido')
 		<h1 class="text-center text-uppercase">Estos son los usuarios registrados</h1>
 		<table class="table table-hover">
 			<th>nombre</th>
@@ -10,7 +10,8 @@
 				<tr>
 					<td>{{$usuario->name}}</td>
 					<td>{{$usuario->email}}</td>
-					<td><a href="" class="btn btn-warning">Editar </a><a href="" class="btn btn-danger">Eliminar</a></td>
+					<td>{!! link_to_route('admin.edit',$title='Editar',$parameters=$usuario->id,$atributes=['class'=>'btn btn-warning']) !!}</a>
+					<a href="" class="btn btn-danger">Eliminar</a></td>
 				</tr>
 			@endforeach
 		</table>
