@@ -10,8 +10,12 @@
 				<tr>
 					<td>{{$usuario->name}}</td>
 					<td>{{$usuario->email}}</td>
-					<td>{!! link_to_route('admin.edit',$title='Editar',$parameters=$usuario->id,$atributes=['class'=>'btn btn-warning']) !!}</a>
-					<a href="" class="btn btn-danger">Eliminar</a></td>
+					<td>{!! link_to_route('admin.edit',$title='Editar',$parameters=$usuario->id,$atributes=['class'=>'btn btn-warning']) !!}</td>
+					<td>
+					{!! Form::open(['route'=>['admin.destroy',$usuario->id],'method'=>'DELETE']) !!}
+						{!! Form::submit('Eliminar',['class'=>'btn btn-danger'])!!}
+					{!! Form::close() !!}
+					</td>
 				</tr>
 			@endforeach
 		</table>

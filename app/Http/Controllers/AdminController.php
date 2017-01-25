@@ -91,6 +91,8 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user->delete();
+        return redirect('admin')->with('mensaje','Usuario eliminado correctamente');
     }
 }
