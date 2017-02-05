@@ -178,6 +178,7 @@ return [
         // NewsGame\Providers\BroadcastServiceProvider::class,
         NewsGame\Providers\EventServiceProvider::class,
         NewsGame\Providers\RouteServiceProvider::class,
+        'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider', // Laravel IDE helper
 
 
     ],
