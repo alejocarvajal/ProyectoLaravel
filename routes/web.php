@@ -20,3 +20,5 @@ Route::get('/hola/{nombre?}',function($nombre='usuario') {
 });
 
 Route::resource('/admin','AdminController');
+Route:: resource('/categorias','Categorias');
+Route::resource('/post','PostController');

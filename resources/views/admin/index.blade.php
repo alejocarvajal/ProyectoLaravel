@@ -2,6 +2,7 @@
 
 @section('contenido')
 		<h1 class="text-center text-uppercase">Estos son los usuarios registrados</h1>
+		{{session('mensaje')}}
 		<table class="table table-hover">
 			<th>nombre</th>
 			<th>Email</th>
