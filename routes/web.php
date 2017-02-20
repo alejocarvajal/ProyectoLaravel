@@ -22,3 +22,11 @@ Route::get('/hola/{nombre?}',function($nombre='usuario') {
 Route::resource('/admin','AdminController');
 Route:: resource('/categorias','Categorias');
 Route::resource('/post','PostController');
+
+Route::get('/subir',function() {
+	return view("subir");
+});
+Route::post('storage',function() {
+	request()->file('image')->store('public');
+	return 'Todo ok';
+});
