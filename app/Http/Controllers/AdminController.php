@@ -11,6 +11,15 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    protected $rules=[
+        'name'=>['required','min:3'],
+        'email'=>['required','email','unique:user'],
+        'password'=>['required','min:4','max:15'],
+    ];
+    protected $rulesEdit=[
+        'name'=>['required','min:3'],
+        'email'=>['required','email','unique:user']
+    ];
     public function index()
     {
         $users = User::all();
@@ -35,10 +44,16 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request,$this->rules);
         $user= new User();
         $user->name= $request->name;
         $user->email = $request->email;
         $user->password= bcrypt($request->password);
+         if($request->file('image')==null){
+            $user->path = "";
+        }else{
+            $user->path = $request->file('image')->store('users');
+        }
         $user->save();
         return redirect('admin');
     }
@@ -75,10 +90,16 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request,$this->rulesEdit);
         $user = User::find($id);
         $user->name= $request->name;
         $user->email= $request->email;
         $user->password= bcrypt($request->password);
+        if($request->file('image')==null){
+            $user->path =$user->path;
+        }else{
+            $user->path = $request->file('image')->store('users');
+        }
         $user->save();
         return redirect('admin')->with('mensaje','Usuario actualizado correctamente');
     }

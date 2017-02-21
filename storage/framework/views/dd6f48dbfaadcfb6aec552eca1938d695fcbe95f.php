@@ -13,6 +13,8 @@
 
      <?php echo Form::password('password',['class'=>'form-control','placeholder'=>'Ingrese su password aqui']); ?>
 
+     <?php echo Form::file('image'); ?>
+
      <br>
      <?php echo Form::submit('Enviar',['Class'=>'btn btn-primary']); ?>
 

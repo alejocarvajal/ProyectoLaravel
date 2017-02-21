@@ -10,6 +10,7 @@
 | to using a Closure or controller method. Build something great!
 |
 */
+use Carbon\Carbon;
 
 Route::get('/', function () {
     return view('welcome');
@@ -26,7 +27,8 @@ Route::resource('/post','PostController');
 Route::get('/subir',function() {
 	return view("subir");
 });
-Route::post('storage',function() {
-	request()->file('image')->store('public');
-	return 'Todo ok';
+Route::post('storage',function(){
+	$id = 1;
+	$path = request()->file('image')->storeas('users/'.$id,'avatar'.Carbon::now()->second.'jpg');
+	return 'Todo Ok '.$path;
 });

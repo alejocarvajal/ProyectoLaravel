@@ -1,7 +1,8 @@
 @extends('layouts.admin')
 @section('contenido')
+@include('errors.alerts.errorUsers')
 	<h1>Formulario editar</h1>
-	{!!Form::model($usuario,['route'=>['admin.update',$usuario->id],'method'=>'PUT'])!!}
+	{!!Form::model($usuario,['route'=>['admin.update',$usuario->id],'method'=>'PUT','files'=>true])!!}
 		@include('admin.userForm.form')
 	{!!Form::close()!!}
 @endsection

@@ -3,11 +3,18 @@
 		<?php echo e(session('mensaje')); ?>
 
 		<table class="table table-hover">
+			<th>imagen</th>
 			<th>nombre</th>
 			<th>Email</th>
 			<th>Opciones</th>
 			<?php $__currentLoopData = $usuarios; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $usuario): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
 				<tr>
+					<td>
+						<?php if($usuario->path=='' || $usuario->path==null): ?>
+						<img class='img-responsive' width='60px' src="/img/default-image.png"></td>
+						<?php else: ?>
+						<img class='img-responsive' width='60px' src="/uploads/<?php echo e($usuario->path); ?>"></td>
+						<?php endif; ?>
 					<td><?php echo e($usuario->name); ?></td>
 					<td><?php echo e($usuario->email); ?></td>
 					<td><?php echo link_to_route('admin.edit',$title='Editar',$parameters=$usuario->id,$atributes=['class'=>'btn btn-warning']); ?></td>
