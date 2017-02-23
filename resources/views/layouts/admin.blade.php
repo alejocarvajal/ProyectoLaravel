@@ -7,11 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Admin News game</title>
+    {!!Html::script('js/jquery.min.js')!!}
+    {!!Html::script('js/bootstrap.min.js')!!}
+    {!!Html::script('js/metisMenu.min.js')!!}
+    {!!Html::script('js/sb-admin-2.js')!!}
+    {!!Html::script('ckeditor/ckeditor.js')!!}
     {!!Html::style('css/bootstrap.min.css')!!}
     {!!Html::style('css/metisMenu.min.css')!!}
     {!!Html::style('css/sb-admin-2.css')!!}
     {!!Html::style('css/font-awesome.min.css')!!}
-    
 
 </head>
 
@@ -56,21 +60,21 @@
                             <a href="#"><i class="fa fa-users fa-fw"></i> Usuario<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{!!URL('/admin/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
+                                    <a href="{!!URL('/admin/create') !!}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
                                 </li>
                                 <li>
-                                    <a href="{!!URL('/admin')!!}"><i class='fa fa-list-ol fa-fw'></i> Usuarios</a>
+                                    <a href="{!!URL('/admin') !!}"><i class='fa fa-list-ol fa-fw'></i> Usuarios</a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-film fa-fw"></i> Entradas<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-book fa-fw"></i> Entradas<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{!! URL('post/create') !!}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
+                                    <a href="{!!URL('/post/create') !!}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
                                 </li>
                                 <li>
-                                    <a href=""><i class='fa fa-list-ol fa-fw'></i> Entradas</a>
+                                    <a href="{!!URL('/post') !!}"><i class='fa fa-list-ol fa-fw'></i> Entradas</a>
                                 </li>
                             </ul>
                         </li>
@@ -79,10 +83,10 @@
                             <a href="#"><i class="fa fa-child fa-fw"></i> Categorias<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{!!URL('/categorias/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
+                                    <a href="{!!URL('/categorias/create') !!}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
                                 </li>
                                 <li>
-                                    <a href="{!! URL('/categorias') !!}"><i class='fa fa-list-ol fa-fw'></i> Categorias</a>
+                                    <a href="{!!URL('/categorias') !!}"><i class='fa fa-list-ol fa-fw'></i> Categorias</a>
                                 </li>
                             </ul>
                         </li>
@@ -95,15 +99,14 @@
 
         <div id="page-wrapper">
             @yield('contenido')
+            @include('flashy::message')
         </div>
 
     </div>
     
 
-    {!!Html::script('js/jquery.min.js')!!}
-    {!!Html::script('js/bootstrap.min.js')!!}
-    {!!Html::script('js/metisMenu.min.js')!!}
-    {!!Html::script('js/sb-admin-2.js')!!}
+    
+
 </body>
 
 </html>

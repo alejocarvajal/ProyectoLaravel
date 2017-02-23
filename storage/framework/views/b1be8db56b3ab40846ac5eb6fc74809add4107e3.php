@@ -7,6 +7,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Admin News game</title>
+    <?php echo Html::script('js/jquery.min.js'); ?>
+
+    <?php echo Html::script('js/bootstrap.min.js'); ?>
+
+    <?php echo Html::script('js/metisMenu.min.js'); ?>
+
+    <?php echo Html::script('js/sb-admin-2.js'); ?>
+
+    <?php echo Html::script('ckeditor/ckeditor.js'); ?>
+
     <?php echo Html::style('css/bootstrap.min.css'); ?>
 
     <?php echo Html::style('css/metisMenu.min.css'); ?>
@@ -15,7 +25,6 @@
 
     <?php echo Html::style('css/font-awesome.min.css'); ?>
 
-    
 
 </head>
 
@@ -68,13 +77,13 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-film fa-fw"></i> Entradas<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-book fa-fw"></i> Entradas<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="<?php echo URL('post/create'); ?>"><i class='fa fa-plus fa-fw'></i> Agregar</a>
+                                    <a href="<?php echo URL('/post/create'); ?>"><i class='fa fa-plus fa-fw'></i> Agregar</a>
                                 </li>
                                 <li>
-                                    <a href=""><i class='fa fa-list-ol fa-fw'></i> Entradas</a>
+                                    <a href="<?php echo URL('/post'); ?>"><i class='fa fa-list-ol fa-fw'></i> Entradas</a>
                                 </li>
                             </ul>
                         </li>
@@ -99,18 +108,13 @@
 
         <div id="page-wrapper">
             <?php echo $__env->yieldContent('contenido'); ?>
+            <?php echo $__env->make('flashy::message', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
         </div>
 
     </div>
     
 
-    <?php echo Html::script('js/jquery.min.js'); ?>
-
-    <?php echo Html::script('js/bootstrap.min.js'); ?>
-
-    <?php echo Html::script('js/metisMenu.min.js'); ?>
-
-    <?php echo Html::script('js/sb-admin-2.js'); ?>
+    
 
 </body>
 

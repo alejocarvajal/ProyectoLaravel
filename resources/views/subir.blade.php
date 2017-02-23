@@ -1,6 +1,6 @@
-<h1>FORMULARIO SUBIR ARCHIVOS</h1>
+<h1>Formulario Subir Archivos</h1>
 {!!Form::open(['url'=>'storage','files'=>true])!!}
 	{!!Form::token()!!}
-	{!!Form::file('image')!!}
-	{!!Form::submit('enviar')!!}
-{!!Form::close()!!}
+	{!!form::file('image')!!}
+	{!!form::submit('Enviar')!!}
+{!!form::close()!!}

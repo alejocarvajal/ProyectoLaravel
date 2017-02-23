@@ -178,8 +178,9 @@ return [
         // NewsGame\Providers\BroadcastServiceProvider::class,
         NewsGame\Providers\EventServiceProvider::class,
         NewsGame\Providers\RouteServiceProvider::class,
-        
+        MercurySeries\Flashy\FlashyServiceProvider::class,
 
+        
 
     ],
 
@@ -230,6 +231,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'Flashy' => MercurySeries\Flashy\Flashy::class,
 
     ],
 

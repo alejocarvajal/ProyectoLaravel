@@ -225,10 +225,6 @@ class PHPUnit_Framework_TestResult implements Countable
             $this->risky[] = new PHPUnit_Framework_TestFailure($test, $t);
             $notifyMethod  = 'addRiskyTest';
 
-            if ($test instanceof PHPUnit_Framework_TestCase) {
-                $test->markAsRisky();
-            }
-
             if ($this->stopOnRisky) {
                 $this->stop();
             }
@@ -311,10 +307,6 @@ class PHPUnit_Framework_TestResult implements Countable
             $e instanceof PHPUnit_Framework_OutputError) {
             $this->risky[] = new PHPUnit_Framework_TestFailure($test, $e);
             $notifyMethod  = 'addRiskyTest';
-
-            if ($test instanceof PHPUnit_Framework_TestCase) {
-                $test->markAsRisky();
-            }
 
             if ($this->stopOnRisky) {
                 $this->stop();
@@ -1235,17 +1227,11 @@ class PHPUnit_Framework_TestResult implements Countable
     /**
      * Returns whether the entire test was successful or not.
      *
-     * @param bool $includeWarnings
-     *
      * @return bool
      */
-    public function wasSuccessful($includeWarnings = true)
+    public function wasSuccessful()
     {
-        if ($includeWarnings) {
-            return empty($this->errors) && empty($this->failures) && empty($this->warnings);
-        } else {
-            return empty($this->errors) && empty($this->failures);
-        }
+        return empty($this->errors) && empty($this->failures) && empty($this->warnings);
     }
 
     /**
@@ -1259,7 +1245,7 @@ class PHPUnit_Framework_TestResult implements Countable
      */
     public function setTimeoutForSmallTests($timeout)
     {
-        if (!is_int($timeout)) {
+        if (!is_integer($timeout)) {
             throw PHPUnit_Util_InvalidArgumentHelper::factory(1, 'integer');
         }
 
@@ -1277,7 +1263,7 @@ class PHPUnit_Framework_TestResult implements Countable
      */
     public function setTimeoutForMediumTests($timeout)
     {
-        if (!is_int($timeout)) {
+        if (!is_integer($timeout)) {
             throw PHPUnit_Util_InvalidArgumentHelper::factory(1, 'integer');
         }
 
@@ -1295,7 +1281,7 @@ class PHPUnit_Framework_TestResult implements Countable
      */
     public function setTimeoutForLargeTests($timeout)
     {
-        if (!is_int($timeout)) {
+        if (!is_integer($timeout)) {
             throw PHPUnit_Util_InvalidArgumentHelper::factory(1, 'integer');
         }
 

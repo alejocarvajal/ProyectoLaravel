@@ -1,6 +1,10 @@
 @extends('layouts.admin')
 
 @section('contenido')
-    <h2 class="text-center text-uppercase">Formulario de registro de usuarios</h2>
-    @include('categorias.form.formCategorias')
+@include('errors.alerts.errorUsers')
+	<h1 class="text-center">Formulario para agregar categorias</h1>
+		{!!Form::open(['route'=>'categorias.store','method'=>'POST'])!!}
+			@include('categorias.forms.formCategories')
+		{!!Form::close()!!}
+
 @endsection

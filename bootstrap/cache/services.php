@@ -28,6 +28,7 @@
     24 => 'NewsGame\\Providers\\AuthServiceProvider',
     25 => 'NewsGame\\Providers\\EventServiceProvider',
     26 => 'NewsGame\\Providers\\RouteServiceProvider',
+    27 => 'MercurySeries\\Flashy\\FlashyServiceProvider',
   ),
   'eager' => 
   array (
@@ -45,6 +46,7 @@
     11 => 'NewsGame\\Providers\\AuthServiceProvider',
     12 => 'NewsGame\\Providers\\EventServiceProvider',
     13 => 'NewsGame\\Providers\\RouteServiceProvider',
+    14 => 'MercurySeries\\Flashy\\FlashyServiceProvider',
   ),
   'deferred' => 
   array (

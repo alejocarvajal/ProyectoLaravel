@@ -4,6 +4,9 @@ namespace NewsGame\Http\Controllers;
 
 use Illuminate\Http\Request;
 use NewsGame\User;
+use Illuminate\Validation\Rule;
+use Flashy;
+
 class AdminController extends Controller
 {
     /**
@@ -11,18 +14,20 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    protected $rules=[
-        'name'=>['required','min:3'],
-        'email'=>['required','email','unique:user'],
-        'password'=>['required','min:4','max:15'],
+    protected $rules = [
+    'name'=>['required','min:3'],
+    'email'=>['required','email','unique:users'],
+    'password'=>['required','min:4','max:15']
     ];
-    protected $rulesEdit=[
-        'name'=>['required','min:3'],
-        'email'=>['required','email','unique:user']
+
+    protected $rulesEdit = [
+    'name'=>['required','min:3'],
+    'email'=>['required','email','unique:users'],
     ];
-    public function index()
+
+    public function index(Request $request)
     {
-        $users = User::all();
+        $users = User::orderBy('id','DESC')->paginate(3);
         return view('admin.index',['usuarios'=>$users]);
     }
 
@@ -45,16 +50,17 @@ class AdminController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,$this->rules);
-        $user= new User();
-        $user->name= $request->name;
+        $user = new User;
+        $user->name = $request->name;
         $user->email = $request->email;
-        $user->password= bcrypt($request->password);
-         if($request->file('image')==null){
+        $user->password = bcrypt($request->password);
+        if($request->file('image')==null){
             $user->path = "";
         }else{
             $user->path = $request->file('image')->store('users');
         }
         $user->save();
+        Flashy::success('Usuario registrado correctamente');
         return redirect('admin');
     }
 
@@ -77,7 +83,9 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
+
         $user = User::find($id);
+
         return view('admin.edit',['usuario'=>$user]);
     }
 
@@ -90,17 +98,18 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request,$this->rulesEdit);
+        $this->validate($request,['name'=>['required','min:3'],'email'=>['required',Rule::unique('users')->ignore($id)]]);
         $user = User::find($id);
-        $user->name= $request->name;
-        $user->email= $request->email;
-        $user->password= bcrypt($request->password);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->password;
         if($request->file('image')==null){
-            $user->path =$user->path;
+            $user->path = $user->path;
         }else{
             $user->path = $request->file('image')->store('users');
         }
         $user->save();
+        Flashy::info('Usuario editado correctamente');
         return redirect('admin')->with('mensaje','Usuario actualizado correctamente');
     }
 
@@ -114,6 +123,7 @@ class AdminController extends Controller
     {
         $user = User::find($id);
         $user->delete();
+        Flashy::error('Usuario eliminado satisfactoriamente');
         return redirect('admin')->with('mensaje','Usuario eliminado correctamente');
     }
 }

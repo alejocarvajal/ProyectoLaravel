@@ -3,8 +3,10 @@
 namespace NewsGame\Http\Controllers;
 
 use Illuminate\Http\Request;
-use NewsGame\Http\Controllers\Controller;
 use NewsGame\Cats;
+use NewsGame\Post;
+use Illuminate\Validation\Rule;
+use Flashy;
 
 class PostController extends Controller
 {
@@ -13,9 +15,16 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    protected $rules =[
+    'title'=>['required','min:3','max:30'],
+    'tags'=>['max:30'],
+    'slug'=>['required','max:15','unique:post'],
+    'cat_id'=>['required']];
+
     public function index()
     {
-
+        $post= Post::orderBy('id','DESC')->paginate(4);
+        return view('post.index',['posts'=>$post]);
     }
 
     /**
@@ -24,8 +33,9 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        $cats = Cats::pluck('name','id');
+    {   
+        $cats=Cats::pluck('name','id');
+
         return view('post.create',['cats'=>$cats]);
     }
 
@@ -37,7 +47,21 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,$this->rules);
+        $post = new Post;
+        $post->title=$request->title;
+        $post->slug=$request->slug;
+        if($request->file('image')==null){
+            $post->path = "";
+        }else{
+            $post->path = $request->file('image')->store('post');
+        }
+        $post->content=$request->content;
+        $post->tags=$request->tags;
+        $post->id_cat=$request->cat_id;
+        $post->save();
+        Flashy::success('Entrada agregada correctamente');
+        return view("/post");
     }
 
     /**
