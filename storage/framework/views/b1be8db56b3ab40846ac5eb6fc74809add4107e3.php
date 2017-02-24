@@ -7,16 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Admin News game</title>
-    <?php echo Html::script('js/jquery.min.js'); ?>
-
-    <?php echo Html::script('js/bootstrap.min.js'); ?>
-
-    <?php echo Html::script('js/metisMenu.min.js'); ?>
-
-    <?php echo Html::script('js/sb-admin-2.js'); ?>
-
-    <?php echo Html::script('ckeditor/ckeditor.js'); ?>
-
     <?php echo Html::style('css/bootstrap.min.css'); ?>
 
     <?php echo Html::style('css/metisMenu.min.css'); ?>
@@ -117,5 +107,14 @@
     
 
 </body>
+<?php echo Html::script('js/jquery.min.js'); ?>
+
+    <?php echo Html::script('js/bootstrap.min.js'); ?>
+
+    <?php echo Html::script('js/metisMenu.min.js'); ?>
+
+    <?php echo Html::script('js/sb-admin-2.js'); ?>
+
+    <?php echo Html::script('ckeditor/ckeditor.js'); ?>
 
 </html>

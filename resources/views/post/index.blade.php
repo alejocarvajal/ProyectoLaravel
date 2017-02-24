@@ -13,7 +13,7 @@
 		<tr>
 			<td>{{ $post->title }}</td>
 			<td>{{ $post->slug }}</td>
-			<td>{{ $post->id_cat }}</td>
+			<td>{{ $post->name }}</td>
 			<td><a href="">Editar</a></td>
 		</tr>
 	@endforeach

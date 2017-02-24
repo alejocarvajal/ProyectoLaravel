@@ -23,8 +23,10 @@ class PostController extends Controller
 
     public function index()
     {
-        $post= Post::orderBy('id','DESC')->paginate(4);
-        return view('post.index',['posts'=>$post]);
+       $post= Post::myPostsCats();
+
+       
+        return view('post.index',['posts'=>$posts]);
     }
 
     /**
@@ -70,9 +72,10 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($value)
     {
-        //
+        $post = Post::join('categories','post.id','=','categories.id')->select('post.*','categories.name as categoria')->where('post.slug','like',$value)->first();
+        return view('front.show',['post'=>$post]);
     }
 
     /**
@@ -83,7 +86,7 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        return "hola";
     }
 
     /**

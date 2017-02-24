@@ -13,13 +13,9 @@
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', "FrontController@home");
 
-Route::get('/hola/{nombre?}',function($nombre = 'usuario'){
-	return view('hola',['nombre'=>$nombre]);
-});
+Route::get('post/{slug}','PostController@show');
 
 Route::resource('/admin','AdminController');
 Route::resource('/categorias','CategoriasController');
