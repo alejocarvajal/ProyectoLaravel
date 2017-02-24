@@ -26,7 +26,7 @@ class PostController extends Controller
        $post= Post::myPostsCats();
 
        
-        return view('post.index',['posts'=>$posts]);
+        return view('post.index',['posts'=>$post]);
     }
 
     /**

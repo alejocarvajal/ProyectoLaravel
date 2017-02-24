@@ -11,7 +11,7 @@
 		<tr>
 			<td><?php echo e($post->title); ?></td>
 			<td><?php echo e($post->slug); ?></td>
-			<td><?php echo e($post->id_cat); ?></td>
+			<td><?php echo e($post->name); ?></td>
 			<td><a href="">Editar</a></td>
 		</tr>
 	<?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
