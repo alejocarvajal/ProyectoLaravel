@@ -86,7 +86,9 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        return "hola";
+        $post = Post::find($id);
+        $cats=Cats::pluck('name','id');
+        return view('post.edit',['post'=>$post,'cats'=>$cats]);
     }
 
     /**
@@ -98,7 +100,29 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'title'=>['required','min:3','max:30'],
+            'tags'=>['max:30'],
+            'slug'=>Rule::unique('post')->ignore($id),
+            'cat_id'=>['required']]);
+        $post=Post::find($id);
+        $post->title=$request->title;
+        $post->slug=$request->slug;
+        if($request->file('image')==null){
+            $post->path = $post->path;
+        }else{
+            $post->path=$request->file('image')->store('posts');
+        }
+        $post->content=$request->content;
+        $post->tags=$request->tags;
+        if($request->cat_id == null || $request->cat_id == ''){
+            $post->id_cat = $post->id_cat;
+        }else{
+            $post->id_cat= $request->cat_id;
+        }
+        $post->save();
+        Flashy::menssage('Entrada agregada correctamente');
+        return redirect('/posts');
     }
 
     /**
@@ -109,6 +133,9 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::find($id);
+        $post->delete();
+        Flashy::error('Usuario eliminado correctamente');
+        return redirect('post');
     }
 }

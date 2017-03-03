@@ -14,8 +14,14 @@
 			<td>{{ $post->title }}</td>
 			<td>{{ $post->slug }}</td>
 			<td>{{ $post->name }}</td>
-			<td><a href="">Editar</a></td>
+			<td>
+				{!! Form::open(['route'=>['post.destroy',$post->id],'method'=>'DELETE']) !!}
+				{!! link_to_route('post.edit',$title='Editar',$parameters = $post->id) !!}
+				{!! Form::submit('Eliminar',['class'=>'btn btn-danger']) !!}
+				{!! Form::close() !!}
+			</td>
 		</tr>
 	@endforeach
 </table>
+{{$posts->links()}}
 @endsection

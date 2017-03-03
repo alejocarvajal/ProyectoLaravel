@@ -21,9 +21,8 @@ Route::resource('/admin','AdminController');
 Route::resource('/categorias','CategoriasController');
 Route::resource('/post','PostController');
 
-Route::get('subir',function(){
-	return view('subir');
-});
+Route::get('subir','FilesController@list');
+Route::get('subir/up','FilesController@up');
 
 Route::post('storage',function(){
 	$id = 1;
@@ -31,3 +30,4 @@ Route::post('storage',function(){
 	return 'Todo Ok '.$path;
 });
 
+Route::post('subir/storage','FilesController@storage');

@@ -89,6 +89,17 @@
                                 </li>
                             </ul>
                         </li>
+                        <li>
+                            <a href="#"><i class="fa fa-file fa-fw"></i> Archivos<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="<?php echo URL('/subir/up'); ?>"><i class='fa fa-plus fa-fw'></i> Agregar</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo URL('/subir'); ?>"><i class='fa fa-list-ol fa-fw'></i> Archivos</a>
+                                </li>
+                            </ul>
+                        </li>
 
                     </ul>
                 </div>
