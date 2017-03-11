@@ -9,13 +9,15 @@
 
       <?php echo Form::label('email', 'Email: '); ?>
 
-      <?php echo Form::text('email',null,['class'=>'form-control','placeholder'=>'Ingrese su Email aqui']); ?>
+
+            <?php echo Form::text('email',null,['class'=>'form-control','placeholder'=>'Ingrese su Email aqui']); ?>
 
 
       <?php echo Form::label('password', 'Password: '); ?>
 
       <?php echo Form::password('password',['class'=>'form-control','placeholder'=>'Ingrese su Email aqui']); ?>
 
+      <?php echo Form::select('id_rol',$roles,null,['class'=>'form-control','placeholder'=>'Seleccione el rol']); ?>
 
       <?php echo Form::file('image'); ?>
 

@@ -37,16 +37,26 @@
 
             <ul class="nav navbar-top-links navbar-right">
                  <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo e(Auth::user()->name); ?>
+
                         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        <li><a href="#" data-toggle="modal" data-target='#modal-user'><i class="fa fa-user fa-fw"></i> User Profile</a>
                         </li>
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li>
+                            <a href="<?php echo e(url('/logout')); ?>"
+                                onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                                Logout
+                            </a>
+                            <form id="logout-form" action="<?php echo e(url('/logout')); ?>" method="POST" style="display: none;">
+                                <?php echo e(csrf_field()); ?>
+
+                            </form>
                         </li>
                     </ul>
                 </li>
@@ -55,17 +65,19 @@
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                        <li>
-                            <a href="#"><i class="fa fa-users fa-fw"></i> Usuario<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="<?php echo URL('/admin/create'); ?>"><i class='fa fa-plus fa-fw'></i> Agregar</a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo URL('/admin'); ?>"><i class='fa fa-list-ol fa-fw'></i> Usuarios</a>
-                                </li>
-                            </ul>
-                        </li>
+                        <?php if(Auth::user()->id_rol==1): ?>
+                            <li>
+                                <a href="#"><i class="fa fa-users fa-fw"></i> Usuario<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="<?php echo URL('/admin/create'); ?>"><i class='fa fa-plus fa-fw'></i> Agregar</a>
+                                    </li>
+                                    <li>
+                                        <a href="<?php echo URL('/admin'); ?>"><i class='fa fa-list-ol fa-fw'></i> Usuarios</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        <?php endif; ?>
                         <li>
                             <a href="#"><i class="fa fa-book fa-fw"></i> Entradas<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -89,18 +101,19 @@
                                 </li>
                             </ul>
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-file fa-fw"></i> Archivos<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="<?php echo URL('/subir/up'); ?>"><i class='fa fa-plus fa-fw'></i> Agregar</a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo URL('/subir'); ?>"><i class='fa fa-list-ol fa-fw'></i> Archivos</a>
-                                </li>
-                            </ul>
-                        </li>
-
+                        <?php if(Auth::user()->id_rol==1): ?>
+                            <li>
+                                <a href="#"><i class="fa fa-file fa-fw"></i> Archivos<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="<?php echo URL('/subir/up'); ?>"><i class='fa fa-plus fa-fw'></i> Agregar</a>
+                                    </li>
+                                    <li>
+                                        <a href="<?php echo URL('/subir'); ?>"><i class='fa fa-list-ol fa-fw'></i> Archivos</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        <?php endif; ?>
                     </ul>
                 </div>
             </div>
@@ -110,6 +123,7 @@
         <div id="page-wrapper">
             <?php echo $__env->yieldContent('contenido'); ?>
             <?php echo $__env->make('flashy::message', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            <?php echo $__env->make('admin.modal', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
         </div>
 
     </div>
@@ -125,6 +139,8 @@
     <?php echo Html::script('js/metisMenu.min.js'); ?>
 
     <?php echo Html::script('js/sb-admin-2.js'); ?>
+
+    <?php echo Html::script('js/miScript.js'); ?>
 
     <?php echo Html::script('ckeditor/ckeditor.js'); ?>
 

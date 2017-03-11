@@ -14,15 +14,17 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 
 Route::get('/', "FrontController@home");
-
-Route::get('post/{slug}','PostController@show');
+Route::get('admin/home', function(){
+	return view('admin.home');
+});
 
 Route::resource('/admin','AdminController');
 Route::resource('/categorias','CategoriasController');
 Route::resource('/post','PostController');
 
-Route::get('subir','FilesController@list');
+Route::get('subir','FilesController@lis');
 Route::get('subir/up','FilesController@up');
+Route::get('subir/destroy/{id}','FilesController@destroy');
 
 Route::post('storage',function(){
 	$id = 1;
@@ -31,3 +33,6 @@ Route::post('storage',function(){
 });
 
 Route::post('subir/storage','FilesController@storage');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');

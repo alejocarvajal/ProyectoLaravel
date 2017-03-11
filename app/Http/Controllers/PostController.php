@@ -20,6 +20,14 @@ class PostController extends Controller
     'tags'=>['max:30'],
     'slug'=>['required','max:15','unique:post'],
     'cat_id'=>['required']];
+    protected $visitanteMid=[
+    'only'=>['create','destroy','update','edit']
+    ];
+
+    function __construct(){
+        $this->middleware('auth');
+        $this->middleware('visitanteMid',$this->visitanteMid);
+    }
 
     public function index()
     {

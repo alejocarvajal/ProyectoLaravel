@@ -5,23 +5,25 @@
 		<th>Nombre</th>
 		<th>Slug</th>
 		<th>Categoria</th>
-		<th>Opciones</th>
+		<?php if(Auth::user()->id_rol<2): ?> <th>Opciones</th> <?php endif; ?>
 	</tr>
 	<?php $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
 		<tr>
 			<td><?php echo e($post->title); ?></td>
 			<td><?php echo e($post->slug); ?></td>
 			<td><?php echo e($post->name); ?></td>
-			<td>
-				<?php echo Form::open(['route'=>['post.destroy',$post->id],'method'=>'DELETE']); ?>
+			<?php if(Auth::user()->id_rol<2): ?>
+				<td>
+					<?php echo Form::open(['route'=>['post.destroy',$post->id],'method'=>'DELETE']); ?>
 
-				<?php echo link_to_route('post.edit',$title='Editar',$parameters = $post->id); ?>
+					<?php echo link_to_route('post.edit',$title='Editar',$parameters = $post->id); ?>
 
-				<?php echo Form::submit('Eliminar',['class'=>'btn btn-danger']); ?>
+					<?php echo Form::submit('Eliminar',['class'=>'btn btn-danger']); ?>
 
-				<?php echo Form::close(); ?>
+					<?php echo Form::close(); ?>
 
-			</td>
+				</td>
+			<?php endif; ?>
 		</tr>
 	<?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
 </table>

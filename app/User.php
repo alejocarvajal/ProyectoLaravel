@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'path'
     ];
 
     protected $dates = ['deleted_at'];
@@ -30,11 +30,4 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function setPasswordAttribute($valor){
-        if(empty($valor)){
-            $this->attributes['password'] = $this->attributes['password'];
-        }else{
-            $this->attributes['password'] = bcrypt($valor);
-        }
-    }
 }

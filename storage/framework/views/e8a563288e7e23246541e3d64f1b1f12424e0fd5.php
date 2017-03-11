@@ -1,7 +1,7 @@
 <?php $__env->startSection('contenido'); ?>
 		<h1 class="text-center text-uppercase">Estos son los usuarios registrados</h1>
 		<table class="table table-hover">
-			<th>Imagen</th><th>nombre</th><th>Email</th><th>Opciones</th>
+			<th>Imagen</th><th>nombre</th><th>Rol</th><th>Email</th><th>Opciones</th>
 			<?php $__currentLoopData = $usuarios; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $usuario): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
 				<tr>
 					<td>
@@ -12,6 +12,7 @@
 					<?php endif; ?>
 					</td>
 					<td><?php echo e($usuario->name); ?></td>
+					<td><?php echo e($usuario->id_rol); ?></td>
 					<td><?php echo e($usuario->email); ?></td>
 					<td>
 						<?php echo link_to_route('admin.edit',$title='Editar',$parameters = $usuario->id, $attributes=['class'=>'btn btn-warning']); ?>

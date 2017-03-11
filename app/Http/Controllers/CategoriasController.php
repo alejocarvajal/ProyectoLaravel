@@ -16,6 +16,15 @@ class CategoriasController extends Controller
     protected $rules = [
      'name'=>['required','min:3','unique:categories'],
      'slug'=>['required','min:3','unique:categories']];
+
+     protected $visitanteMid=[
+    'only'=>['create','destroy','update','edit']
+    ];
+    function __construct(){
+        $this->middleware('auth');
+        $this->middleware('visitanteMid',$this->visitanteMid);
+    }
+
     public function index()
     {
         $cats = Cats::orderBy('id','DESC')->paginate(3);
