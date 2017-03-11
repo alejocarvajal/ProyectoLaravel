@@ -10,6 +10,7 @@ return array(
     'AgregandoCamposPath' => $baseDir . '/database/migrations/2017_01_30_211407_agregandoCamposPath.php',
     'AgregandoSoftDeletesUser' => $baseDir . '/database/migrations/2017_01_11_043211_agregando_SoftDeletes_user.php',
     'CampoRolesUser' => $baseDir . '/database/migrations/2017_03_06_183134_CampoRolesUser.php',
+    'CreandoCamposBool' => $baseDir . '/database/migrations/2017_03_11_172318_CreandoCamposBool.php',
     'CreandoCamposSlugs' => $baseDir . '/database/migrations/2017_01_27_015802_CreandoCamposSlugs.php',
     'CreandoRolesSeeder' => $baseDir . '/database/seeds/CreandoRolesSeeder.php',
     'CrearRoles' => $baseDir . '/database/migrations/2017_03_06_182456_CrearRoles.php',

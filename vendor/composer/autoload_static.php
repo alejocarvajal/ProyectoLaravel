@@ -293,6 +293,7 @@ class ComposerStaticInite07db2eca9ed58ba9dd48ea8c4ec55ac
         'AgregandoCamposPath' => __DIR__ . '/../..' . '/database/migrations/2017_01_30_211407_agregandoCamposPath.php',
         'AgregandoSoftDeletesUser' => __DIR__ . '/../..' . '/database/migrations/2017_01_11_043211_agregando_SoftDeletes_user.php',
         'CampoRolesUser' => __DIR__ . '/../..' . '/database/migrations/2017_03_06_183134_CampoRolesUser.php',
+        'CreandoCamposBool' => __DIR__ . '/../..' . '/database/migrations/2017_03_11_172318_CreandoCamposBool.php',
         'CreandoCamposSlugs' => __DIR__ . '/../..' . '/database/migrations/2017_01_27_015802_CreandoCamposSlugs.php',
         'CreandoRolesSeeder' => __DIR__ . '/../..' . '/database/seeds/CreandoRolesSeeder.php',
         'CrearRoles' => __DIR__ . '/../..' . '/database/migrations/2017_03_06_182456_CrearRoles.php',
