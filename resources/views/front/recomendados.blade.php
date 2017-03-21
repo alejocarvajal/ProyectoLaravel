@@ -9,11 +9,10 @@
 							<div class="news-post image-post">
 								<div class="post-gallery">
 									@if($recomendado->path=='' || $recomendado->path==null)
-				                        <img src="upload/news-posts/h9.jpg" style="width: 337px; height: 361px">
+								<img src="upload/news-posts/h9.jpg" alt="">
 				                  @else
 				                        <img src="/uploads/{{$recomendado->path}}" style="width: 337px; height: 361px"/>
 				                  @endif
-									<img src="" alt="">
 									<div class="hover-box">
 										<div class="inner-hover">
 											<a class="category-post" href="game-category.html">{{ $recomendado->categoria }}</a>
@@ -24,15 +23,15 @@
 													echo $date->format('d F Y');
 												@endphp</li>
 											</ul>
-											<p>{!! substr($recomendado->content, 0,100)  !!}</p>
+											<p>
+												{!! substr($recomendado->content,0,100) !!}
+											</p>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					@endforeach
-						
-
 					</div>
 				</div>
 </div>

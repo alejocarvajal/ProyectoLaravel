@@ -1,18 +1,14 @@
 @extends('layouts.admin')
 
 @section('contenido')
-<h1 class='text-center'>Lista de entradas</h1>
-<table  class="table table-hoover">
-	<tr>
-		<th>Nombre</th>
-		<th>Slug</th>
-		<th>Categoria</th>
-		@if(Auth::user()->id_rol<2) <th>Opciones</th> @endif
-	</tr>
+<h1 class="text-center">Lista de entradas</h1>
+<table class="table table-hover">
+	<tr><th>Nombre</th><th>Slug</th><th>Recomendado</th><th>Categoria</th>@if(Auth::user()->id_rol < 2)<th>Opciones</th>@endif</tr>
 	@foreach($posts as $post)
 		<tr>
 			<td>{{ $post->title }}</td>
 			<td>{{ $post->slug }}</td>
+			<td>{{ $post->recomendado }}</td>
 			<td>{{ $post->name }}</td>
 			@if(Auth::user()->id_rol<2)
 				<td>

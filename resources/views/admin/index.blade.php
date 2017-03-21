@@ -1,6 +1,8 @@
 @extends('layouts.admin')
 
 @section('contenido')
+		
+		
 		<h1 class="text-center text-uppercase">Estos son los usuarios registrados</h1>
 		<table class="table table-hover">
 			<th>Imagen</th><th>nombre</th><th>Rol</th><th>Email</th><th>Opciones</th>
@@ -24,7 +26,10 @@
 							{!!Form::submit('Eliminar',['class'=>'btn btn-danger'])!!}
 						{!!Form::close()!!}
 					</td>
+				</tr>
 			@endforeach
 		</table>
+
 		{{$usuarios->links()}}
+
 @endsection

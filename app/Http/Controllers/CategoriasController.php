@@ -3,9 +3,10 @@
 namespace NewsGame\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
 use NewsGame\Cats;
+use Illuminate\Validation\Rule;
 use Flashy;
+
 class CategoriasController extends Controller
 {
     /**
@@ -13,18 +14,24 @@ class CategoriasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    protected $rules = [
-     'name'=>['required','min:3','unique:categories'],
-     'slug'=>['required','min:3','unique:categories']];
-
      protected $visitanteMid=[
-    'only'=>['create','destroy','update','edit']
+    'only'=>['create','store','destroy','update','edit'],
     ];
-    function __construct(){
+
+    protected $escritorMid = [
+    'only'=>['destroy','update','edit'],
+    ];
+
+     public function __construct(){
         $this->middleware('auth');
         $this->middleware('visitanteMid',$this->visitanteMid);
+        $this->middleware('escritorMid',$this->escritorMid);
     }
 
+    protected $rules = [
+    'name'=>['required','min:3','unique:categories'],
+    'slug'=>['required','min:3','unique:categories'],
+    ];
     public function index()
     {
         $cats = Cats::orderBy('id','DESC')->paginate(3);
@@ -54,7 +61,7 @@ class CategoriasController extends Controller
         $cats->name = $request->name;
         $cats->slug = $request->slug;
         $cats->save();
-        Flashy::success('Categoria registrado correctamente');
+        Flashy::success('Categoria Registrada correctamente');
         return redirect('categorias');
     }
 
@@ -77,6 +84,7 @@ class CategoriasController extends Controller
      */
     public function edit($id)
     {
+
         $cats = Cats::find($id);
         return view('categorias.edit',['cats'=>$cats]);
     }
@@ -92,12 +100,13 @@ class CategoriasController extends Controller
     {
         $this->validate($request,[
             'name'=>['required','min:3',Rule::unique('categories')->ignore($id)],
-            'slug'=>['required','min:3',Rule::unique('categories')->ignore($id)]]);
+            'slug'=>['required','min:3',Rule::unique('categories')->ignore($id)],
+            ]);
         $cats = Cats::find($id);
         $cats->name = $request->name;
         $cats->save();
-        Flashy::info('Categoria editada correctamente');
-        return redirect('categorias')->with('mensaje','Categoria actualizada correctamente');
+        Flashy::message('Categoria Editada correctamente');
+        return redirect('categorias');
     }
 
     /**
@@ -111,6 +120,6 @@ class CategoriasController extends Controller
         $cats = Cats::find($id);
         $cats->delete();
         Flashy::error('Categoria Eliminada correctamente');
-        return redirect('categorias')->with('mensaje','Categoria Eliminada correctamente');
+        return redirect('categorias');
     }
 }

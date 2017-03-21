@@ -7,6 +7,8 @@ use NewsGame\Cats;
 use NewsGame\Post;
 use Illuminate\Validation\Rule;
 use Flashy;
+use DB;
+
 
 class PostController extends Controller
 {
@@ -15,26 +17,34 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     protected $rules =[
     'title'=>['required','min:3','max:30'],
     'tags'=>['max:30'],
-    'slug'=>['required','max:15','unique:post'],
-    'cat_id'=>['required']];
-    protected $visitanteMid=[
-    'only'=>['create','destroy','update','edit']
+        'slug'=>['required','max:50','unique:post'],
+        'cat_id'=> ['required']
     ];
 
-    function __construct(){
+    protected $visitanteMid=[
+    'only'=>['create','destroy','update','edit'],
+    ];
+
+    protected $escritorMid = [
+    'only'=>['destroy','update','edit'],
+    ];
+    
+    public function __construct(){
         $this->middleware('auth',['except'=>'show']);
         $this->middleware('visitanteMid',$this->visitanteMid);
+        $this->middleware('escritorMid',$this->escritorMid);
     }
 
     public function index()
     {
-       $post= Post::myPostsCats();
+        //$posts = Post::orderBy('id','DESC')->paginate(4);
 
-       
-        return view('post.index',['posts'=>$post]);
+       $posts = Post::myPostsCats();
+        return view('post.index',['posts'=>$posts]);
     }
 
     /**
@@ -45,7 +55,6 @@ class PostController extends Controller
     public function create()
     {   
         $cats=Cats::pluck('name','id');
-
         return view('post.create',['cats'=>$cats]);
     }
 
@@ -61,17 +70,26 @@ class PostController extends Controller
         $post = new Post;
         $post->title=$request->title;
         $post->slug=$request->slug;
+        $post->recomendado = $request->recomendado;
+
+        if(empty($request->recomendado)){
+            $post->recomendado = 0;
+        }else{
+            $post->recomendado = $request->recomendado;
+        }
+
+
         if($request->file('image')==null){
             $post->path = "";
         }else{
-            $post->path = $request->file('image')->store('post');
+            $post->path = $request->file('image')->store('posts');
         }
         $post->content=$request->content;
         $post->tags=$request->tags;
         $post->id_cat=$request->cat_id;
         $post->save();
-        Flashy::success('Entrada agregada correctamente');
-        return view("/post");
+        Flashy::message('Entrada agregada correctamente');
+        return redirect('/post');
     }
 
     /**
@@ -82,7 +100,7 @@ class PostController extends Controller
      */
     public function show($value)
     {
-        $post = Post::join('categories','post.id','=','categories.id')->select('post.*','categories.name as categoria')->where('post.slug','like',$value)->first();
+        $post = Post::join('categories','post.id_cat','=','categories.id')->select('post.*','categories.name as categoria')->where('post.slug','like',$value)->first();
         return view('front.show',['post'=>$post]);
     }
 
@@ -111,26 +129,36 @@ class PostController extends Controller
         $this->validate($request,[
             'title'=>['required','min:3','max:30'],
             'tags'=>['max:30'],
-            'slug'=>Rule::unique('post')->ignore($id),
-            'cat_id'=>['required']]);
+            'slug'=>Rule::unique('post')->ignore($id)
+            ]);
         $post=Post::find($id);
         $post->title=$request->title;
         $post->slug=$request->slug;
+
+        if(empty($request->recomendado)){
+            $post->recomendado = 0;
+        }else{
+            $post->recomendado = $request->recomendado;
+        }
+
         if($request->file('image')==null){
             $post->path = $post->path;
         }else{
             $post->path=$request->file('image')->store('posts');
         }
+
         $post->content=$request->content;
         $post->tags=$request->tags;
-        if($request->cat_id == null || $request->cat_id == ''){
+
+        if($request->cat_id == null || $request->cat_id == ""){
             $post->id_cat = $post->id_cat;
         }else{
             $post->id_cat= $request->cat_id;
         }
+
         $post->save();
-        Flashy::menssage('Entrada agregada correctamente');
-        return redirect('/posts');
+        Flashy::message('Entrada agregada correctamente');
+        return redirect('/post');
     }
 
     /**

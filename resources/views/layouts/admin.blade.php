@@ -7,10 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Admin News game</title>
+
     {!!Html::style('css/bootstrap.min.css')!!}
     {!!Html::style('css/metisMenu.min.css')!!}
     {!!Html::style('css/sb-admin-2.css')!!}
     {!!Html::style('css/font-awesome.min.css')!!}
+
+    {!!Html::script('js/jquery.min.js')!!}
 
 </head>
 
@@ -37,7 +40,7 @@
                         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#" data-toggle="modal" data-target='#modal-user'><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        <li><a href="#" data-toggle="modal" data-target="#modal-user"><i class="fa fa-user fa-fw"></i> User Profile</a>
                         </li>
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
@@ -48,6 +51,7 @@
                                 document.getElementById('logout-form').submit();">
                                 Logout
                             </a>
+
                             <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                                 {{ csrf_field() }}
                             </form>
@@ -95,7 +99,7 @@
                                 </li>
                             </ul>
                         </li>
-                        @if(Auth::user()->id_rol==1)
+                        @if(Auth::user()->id_rol<3)
                             <li>
                                 <a href="#"><i class="fa fa-file fa-fw"></i> Archivos<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
@@ -107,7 +111,7 @@
                                     </li>
                                 </ul>
                             </li>
-                        @endif
+                        @endif()
                     </ul>
                 </div>
             </div>
@@ -124,12 +128,12 @@
     
 
     
-
-</body>
-{!!Html::script('js/jquery.min.js')!!}
     {!!Html::script('js/bootstrap.min.js')!!}
     {!!Html::script('js/metisMenu.min.js')!!}
     {!!Html::script('js/sb-admin-2.js')!!}
+    {!!Html::script('ckeditor/ckeditor.js')!!}    
     {!!Html::script('js/miScript.js')!!}
-    {!!Html::script('ckeditor/ckeditor.js')!!}
+
+</body>
+
 </html>

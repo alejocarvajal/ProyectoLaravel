@@ -6,6 +6,7 @@ use NewsGame\User;
 use Validator;
 use NewsGame\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use NewsGame\Mail\BienvenidaMail;
 
 class RegisterController extends Controller
 {
@@ -66,7 +67,9 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'path' => ''
+            'path'=>"",
         ]);
+
+       
     }
 }

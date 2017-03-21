@@ -8,8 +8,13 @@
 
 {!!Form::label('slug','Ingrese slug para la Entrada')!!}
 {!!Form::text('slug',null,['class'=>'form-control'])!!}
-{!!Form::file('image')!!}
 
+{!!Form::label('recomendado','Post recomendado')!!}
+{!!Form::checkbox('recomendado')!!}
+
+<br>
+{!!Form::file('image')!!}
+<br>
 {!!Form::textarea('content',null,['class'=>'form-control ckeditor','placeholder'=>'Ingrese el contenido en este espacio'])!!}
 
 

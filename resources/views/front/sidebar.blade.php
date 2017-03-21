@@ -1,94 +1,46 @@
-<div class="col-sm-4">	
-						<!-- sidebar -->
-						<div class="sidebar">
+<div class="sidebar">
 							<div class="widget tab-posts-widget">
 
 								<ul class="nav nav-tabs" id="myTab">
 									<li class="active">
-										<a href="#option1" data-toggle="tab">Popular</a>
-									</li>
-									<li>
-										<a href="#option2" data-toggle="tab">Recent</a>
-									</li>
-									<li>
-										<a href="#option3" data-toggle="tab">Top Reviews</a>
+				<a>{{ $nomCat[0]->name }}</a>
 									</li>
 								</ul>
-
+								@if (empty($postByCat[0]))
+			<p class="text-center">NO hay entradas para esta categoria</p>
+								@else
 								<div class="tab-content">
 									<div class="tab-pane active" id="option1">
 										<ul class="list-posts">
-											<li>
-												<img src="upload/news-posts/listw1.jpg" alt="">
-												<div class="post-content">
-													<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
-													<ul class="post-tags">
-														<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-													</ul>
-												</div>
-											</li>
+											@foreach ($postByCat as $PBC)
+												<li>
+					@if($PBC->path=='' || $PBC->path==null)
+														<img src="upload/news-posts/listw1.jpg" alt="">
+													@else
+					<img src="/uploads/{{$PBC->path}}" style="width: 75px; height: 66px" />
+													@endif
+
+
+
+						
+													<div class="post-content">
+														<h2><a href="{{ route('post.show',$PBC->slug) }}">{{$PBC->title}}</a></h2>
+														<ul class="post-tags">
+								<li>
+								<i class="fa fa-clock-o"></i>
+																@php
+																	$date = new DateTime($PBC->created_at);
+																	echo $date->format('d F Y');
+																@endphp
+															</li>
+														</ul>
+													</div>
+												</li>
+											@endforeach
 										</ul>
 									</div>
-									<div class="tab-pane" id="option2">
-										<ul class="list-posts">
-
-											<li>
-												<img src="upload/news-posts/listw3.jpg" alt="">
-												<div class="post-content">
-													<h2><a href="single-post.html">Phasellus ultrices nulla quis nibh. Quisque a lectus. </a></h2>
-													<ul class="post-tags">
-														<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-													</ul>
-												</div>
-											</li>
-
-											<li>
-												<img src="upload/news-posts/listw4.jpg" alt="">
-												<div class="post-content">
-													<h2><a href="single-post.html">Donec consectetuer ligula vulputate sem tristique cursus. </a></h2>
-													<ul class="post-tags">
-														<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-													</ul>
-												</div>
-											</li>
-										</ul>										
-									</div>
-									<div class="tab-pane" id="option3">
-										<ul class="list-posts">
-
-											<li>
-												<img src="upload/news-posts/listw4.jpg" alt="">
-												<div class="post-content">
-													<h2><a href="single-post.html">Donec consectetuer ligula vulputate sem tristique cursus. </a></h2>
-													<ul class="post-tags">
-														<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-													</ul>
-												</div>
-											</li>
-
-											<li>
-												<img src="upload/news-posts/listw1.jpg" alt="">
-												<div class="post-content">
-													<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
-													<ul class="post-tags">
-														<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-													</ul>
-												</div>
-											</li>
-
-											<li>
-												<img src="upload/news-posts/listw3.jpg" alt="">
-												<div class="post-content">
-													<h2><a href="single-post.html">Phasellus ultrices nulla quis nibh. Quisque a lectus.  </a></h2>
-													<ul class="post-tags">
-														<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-													</ul>
-												</div>
-											</li>
-										</ul>										
-									</div>
 								</div>
+
+								@endif
 							</div>
-						</div>
-						<!-- End sidebar -->
 					</div>

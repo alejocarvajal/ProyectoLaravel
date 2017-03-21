@@ -163,6 +163,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        MercurySeries\Flashy\FlashyServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -178,7 +179,6 @@ return [
         // NewsGame\Providers\BroadcastServiceProvider::class,
         NewsGame\Providers\EventServiceProvider::class,
         NewsGame\Providers\RouteServiceProvider::class,
-        MercurySeries\Flashy\FlashyServiceProvider::class,
 
         
 

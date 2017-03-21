@@ -4,26 +4,36 @@ namespace NewsGame\Http\Controllers;
 
 use Illuminate\Http\Request;
 use NewsGame\files;
-use Carbon\carbon;
+use Carbon\Carbon;
 use Storage;
 
 class FilesController extends Controller
 {
-    function __construct(){
+
+    protected $escritorMid = [
+    'only'=>['list','up','storage'],
+    ];
+    
+    protected $adminMid = [
+    'only'=>['destroy'],
+    ];
+
+     public function __construct(){
         $this->middleware('auth');
-        $this->middleware('adminMid');
+        
+        $this->middleware('escritorMid',$this->escritorMid);
+        $this->middleware('adminMid',$this->adminMid);
     }
 
-    public function lis(){
-        $file = files::all();
-        return view('files.index',['files'=>$file]);
+    public function list(){
+    	$files = files::all();
+    	return view('files.index',['files'=>$files]);
     }
-
     public function up(){
         return view('files.subir');
     }
-    public function storaged(Request $request){
-    	$myFiles = new files();
+    public function storage(Request $request){
+    	$myFiles = new files;
     	$file = $request->file('image');
     	$name = $file->getClientOriginalName();
     	$ext = $file->extension();
@@ -32,9 +42,9 @@ class FilesController extends Controller
     	$myFiles->type=$ext;
     	$myFiles->path=$path;
     	$myFiles->save();
-
     	return redirect('subir');
     }
+
     public function destroy($id){
         $file = files::find($id);
         Storage::delete($file->path);

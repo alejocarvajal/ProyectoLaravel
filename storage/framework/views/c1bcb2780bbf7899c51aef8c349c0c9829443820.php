@@ -15,9 +15,16 @@
 
 <?php echo Form::text('slug',null,['class'=>'form-control']); ?>
 
+
+<?php echo Form::label('recomendado','Post recomendado'); ?>
+
+<?php echo Form::checkbox('recomendado'); ?>
+
+
+<br>
 <?php echo Form::file('image'); ?>
 
-
+<br>
 <?php echo Form::textarea('content',null,['class'=>'form-control ckeditor','placeholder'=>'Ingrese el contenido en este espacio']); ?>
 
 

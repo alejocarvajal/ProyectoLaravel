@@ -1,8 +1,6 @@
 @extends('front.principal')
 
 @section('contenido')
-		<!-- Header
-		    ================================================== -->
 		<header class="clearfix">
 			<!-- Bootstrap navbar -->
 			<nav class="navbar navbar-default navbar-static-top" role="navigation">
@@ -248,194 +246,32 @@
 
 			</nav>
 			<!-- End Bootstrap navbar -->
-
 		</header>
 		<!-- End Header -->
 
 		<!-- ticker-news-section
 			================================================== -->
 		<section class="heading-news3">
-			@include("front.recomendados")
+			@include('front.recomendados')
 		</section>
 
 		<section class="block-wrapper">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-8">
-
-						<!-- block content -->
-						<div class="block-content">
-
-							<!-- grid box -->
-							<div class="grid-box">
-
-								<div class="title-section">
-									<h1><span>Top Stories</span></h1>
-								</div>
-
-								<ul class="category-filter-posts">
-									<li><a class="active" href="#">All</a></li>
-									<li><a href="#">Xbox one</a></li>
-									<li><a href="#">PS4</a></li>
-									<li><a href="#">WII U</a></li>
-									<li><a href="#">PC</a></li>
-								</ul>
-
-								<div class="news-post standard-post2">
-									<div class="post-gallery">
-										<img src="upload/news-posts/1.jpg" alt="">
-										<div class="rate-level">
-											<p><span>9.5</span> Amazing</p>
-										</div>
-									</div>
-									<div class="post-title">
-										<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
-										<ul class="post-tags">
-											<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-											<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-											<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<!-- End grid box -->
-							<!-- article box -->
-							<div class="article-box">
-								<div class="title-section">
-									<h1><span>Latest Articles</span></h1>
-								</div>
-
-								<div class="news-post article-post">
-									<div class="row">
-										<div class="col-sm-4">
-											<div class="post-gallery">
-												<img alt="" src="upload/news-posts/art1.jpg">
-											</div>
-										</div>
-										<div class="col-sm-8">
-											<div class="post-content">
-												<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.</a></h2>
-												<ul class="post-tags">
-													<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-													<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-													<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-													<li><i class="fa fa-eye"></i>872</li>
-												</ul>
-												<span class="post-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</span>
-												<p>Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<div class="news-post article-post">
-									<div class="row">
-										<div class="col-sm-4">
-											<div class="post-gallery">
-												<img alt="" src="upload/news-posts/art2.jpg">
-											</div>
-										</div>
-										<div class="col-sm-8">
-											<div class="post-content">
-												<h2><a href="single-post.html">Sed arcu. Cras consequat.</a></h2>
-												<ul class="post-tags">
-													<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-													<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-													<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-													<li><i class="fa fa-eye"></i>872</li>
-												</ul>
-												<span class="post-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</span>
-												<p>Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<div class="news-post article-post">
-									<div class="row">
-										<div class="col-sm-4">
-											<div class="post-gallery">
-												<img alt="" src="upload/news-posts/art3.jpg">
-											</div>
-										</div>
-										<div class="col-sm-8">
-											<div class="post-content">
-												<h2><a href="single-post.html">Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. </a></h2>
-												<ul class="post-tags">
-													<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-													<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-													<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-													<li><i class="fa fa-eye"></i>872</li>
-												</ul>
-												<span class="post-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</span>
-												<p>Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<div class="news-post article-post">
-									<div class="row">
-										<div class="col-sm-4">
-											<div class="post-gallery">
-												<img alt="" src="upload/news-posts/art4.jpg">
-											</div>
-										</div>
-										<div class="col-sm-8">
-											<div class="post-content">
-												<h2><a href="single-post.html">Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</a></h2>
-												<ul class="post-tags">
-													<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-													<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-													<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-													<li><i class="fa fa-eye"></i>872</li>
-												</ul>
-												<span class="post-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</span>
-												<p>Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="center-button">
-									<a href="#">Show me more</a>
-								</div>
-							</div>
-							<!-- End article box -->
-						</div>
-						<!-- End block content -->
+						@include('front.contenido')
 					</div>
-					@include("front.sidebar")
+
+					<div class="col-sm-4">	
+						@include('front.sidebar')
+					</div>
+
 				</div>
 			</div>
 		</section>
 		<!-- End block-wrapper-section -->
 		<!-- footer================================================== -->
 		<footer>
-			@include("front.footer")
+			@include('front.footer')
 		</footer>
-		<!-- End footer -->
 @endsection

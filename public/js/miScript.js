@@ -6,7 +6,7 @@ function LeerURL(input){
 		}
 		reader.readAsDataURL(input.files[0]);
 	}
-}
-$("#miImagenInput").change(function(){
+};
+$('#miImagenInput').change(function(){
 	LeerURL(this);
 });

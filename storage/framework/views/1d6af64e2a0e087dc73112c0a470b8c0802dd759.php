@@ -5,89 +5,39 @@
 
 								<ul class="nav nav-tabs" id="myTab">
 									<li class="active">
-										<a href="#option1" data-toggle="tab">Popular</a>
-									</li>
-									<li>
-										<a href="#option2" data-toggle="tab">Recent</a>
-									</li>
-									<li>
-										<a href="#option3" data-toggle="tab">Top Reviews</a>
+										<a href=""><?php echo e($nomCat[0]->name); ?></a>
 									</li>
 								</ul>
-
+								<?php if(empty($postByCat[0])): ?>
+									`<p class="text-center">No hay entradas para esta categoria</p>
+								<?php else: ?>
 								<div class="tab-content">
 									<div class="tab-pane active" id="option1">
 										<ul class="list-posts">
-											<li>
-												<img src="upload/news-posts/listw1.jpg" alt="">
-												<div class="post-content">
-													<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
-													<ul class="post-tags">
-														<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-													</ul>
-												</div>
-											</li>
+											<?php $__currentLoopData = $postByCat; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $PBC): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
+												<li>
+													<?php if(empty($PBC->path)): ?>
+														<img src="upload/news-posts/listw1.jpg" alt="">
+													<?php else: ?>
+														<img src="uploads/<?php echo e($PBC->path); ?>" alt="" style ="width:75px; height: 66px">
+													<?php endif; ?>
+													<div class="post-content">
+														<h2><a href="<?php echo e(route('post.show',$PBC->slug)); ?>"><?php echo e($PBC->title); ?></a></h2>
+														<ul class="post-tags">
+															<li><i class="fa fa-clock-o"></i>
+																<?php 
+																	$date = new DateTime($PBC->created_at);
+																	echo $date->format('d F Y');
+																 ?>
+															</li>
+														</ul>
+													</div>
+												</li>
+											<?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
 										</ul>
 									</div>
-									<div class="tab-pane" id="option2">
-										<ul class="list-posts">
-
-											<li>
-												<img src="upload/news-posts/listw3.jpg" alt="">
-												<div class="post-content">
-													<h2><a href="single-post.html">Phasellus ultrices nulla quis nibh. Quisque a lectus. </a></h2>
-													<ul class="post-tags">
-														<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-													</ul>
-												</div>
-											</li>
-
-											<li>
-												<img src="upload/news-posts/listw4.jpg" alt="">
-												<div class="post-content">
-													<h2><a href="single-post.html">Donec consectetuer ligula vulputate sem tristique cursus. </a></h2>
-													<ul class="post-tags">
-														<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-													</ul>
-												</div>
-											</li>
-										</ul>										
-									</div>
-									<div class="tab-pane" id="option3">
-										<ul class="list-posts">
-
-											<li>
-												<img src="upload/news-posts/listw4.jpg" alt="">
-												<div class="post-content">
-													<h2><a href="single-post.html">Donec consectetuer ligula vulputate sem tristique cursus. </a></h2>
-													<ul class="post-tags">
-														<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-													</ul>
-												</div>
-											</li>
-
-											<li>
-												<img src="upload/news-posts/listw1.jpg" alt="">
-												<div class="post-content">
-													<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
-													<ul class="post-tags">
-														<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-													</ul>
-												</div>
-											</li>
-
-											<li>
-												<img src="upload/news-posts/listw3.jpg" alt="">
-												<div class="post-content">
-													<h2><a href="single-post.html">Phasellus ultrices nulla quis nibh. Quisque a lectus.  </a></h2>
-													<ul class="post-tags">
-														<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-													</ul>
-												</div>
-											</li>
-										</ul>										
-									</div>
 								</div>
+								<?php endif; ?>
 							</div>
 						</div>
 						<!-- End sidebar -->

@@ -30,7 +30,7 @@ class BienvenidaMail extends Mailable
     {
         $from = "bienvenido@NewsGame.com";
         $name = "Juan";
-        $subject = "Bienvenido a la familia ";
+        $subject = "bienvenido a la familia";
         return $this->view('email.welcome')->from($from,$name)->subject($subject);
     }
 }

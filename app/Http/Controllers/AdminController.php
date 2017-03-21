@@ -10,6 +10,7 @@ use DB;
 
 class AdminController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
@@ -26,13 +27,15 @@ class AdminController extends Controller
     'email'=>['required','email','unique:users'],
     ];
 
-    function __construct(){
+    public function __construct(){
         $this->middleware('auth');
-        $this->middleware('adminMid');
+        $this->middleware('adminMid',['except'=>'update']);
     }
+
     public function index(Request $request)
     {
-        $users = User::orderBy('id','DESC')->paginate(3);
+        $users = User::orderBy('id','DESC')->paginate(4);
+        
         return view('admin.index',['usuarios'=>$users]);
     }
 
@@ -60,19 +63,14 @@ class AdminController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->id_rol = $request->id_rol;
-        
-        if(empty($request->password)){
-            $user->password= $user->password;
-        }else{
-            $user->password = bcrypt($request->password);
-        }
+        $user->password = bcrypt($request->password);
         if($request->file('image')==null){
             $user->path = "";
         }else{
             $user->path = $request->file('image')->store('users');
         }
         $user->save();
-        Flashy::success('Usuario registrado correctamente');
+        Flashy::success('Usuario Registrado correctamente');
         return redirect('admin');
     }
 
@@ -95,9 +93,9 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-
-        $user = User::find($id);
         $roles = DB::table('roles')->pluck('name','id');
+        $user = User::find($id);
+
         return view('admin.edit',['usuario'=>$user,'roles'=>$roles]);
     }
 
@@ -114,12 +112,19 @@ class AdminController extends Controller
         $user = User::find($id);
         $user->name = $request->name;
         $user->email = $request->email;
-        if($request->id_rol==null){
+        
+        if(empty($request->id_rol)){
             $user->id_rol = $user->id_rol;
         }else{
             $user->id_rol = $request->id_rol;
         }
-        $user->password = $request->password;
+
+        if(empty($request->password)){
+            $user->password = $user->password;
+        }else{
+            $user->password = bcrypt($request->password);
+        }
+
         if($request->file('image')==null){
             $user->path = $user->path;
         }else{
@@ -127,7 +132,7 @@ class AdminController extends Controller
         }
         $user->save();
         Flashy::info('Usuario editado correctamente');
-        return redirect('admin')->with('mensaje','Usuario actualizado correctamente');
+        return redirect('admin');
     }
 
     /**
@@ -140,7 +145,7 @@ class AdminController extends Controller
     {
         $user = User::find($id);
         $user->delete();
-        Flashy::error('Usuario eliminado satisfactoriamente');
-        return redirect('admin')->with('mensaje','Usuario eliminado correctamente');
+        Flashy::error('Usuario eliminado correctamente');
+        return redirect('admin');
     }
 }
