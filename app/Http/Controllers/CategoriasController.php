@@ -3,6 +3,8 @@
 namespace NewsGame\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+use NewsGame\Post;
 use NewsGame\Cats;
 use Illuminate\Validation\Rule;
 use Flashy;
@@ -23,7 +25,7 @@ class CategoriasController extends Controller
     ];
 
      public function __construct(){
-        $this->middleware('auth');
+        $this->middleware('auth',['except'=>'show']);
         $this->middleware('visitanteMid',$this->visitanteMid);
         $this->middleware('escritorMid',$this->escritorMid);
     }
@@ -71,9 +73,21 @@ class CategoriasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $categorias = Cats::catsRadom(4);
+        $nomCategoria= Cats::catNameRandom();
+        $postByCat = Post::PostByRandom($nomCategoria[0]->name);
+        $posts =  Post::PostByCat($slug);
+        
+        $parametros = [
+            'posts'=>$posts,
+            'nomCat' => $nomCategoria,
+            'postByCat'=>$postByCat,
+            'categorias'=>$categorias,
+        ];
+
+        return view('front.categories',$parametros);
     }
 
     /**

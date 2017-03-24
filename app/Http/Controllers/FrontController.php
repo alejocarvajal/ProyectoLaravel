@@ -10,11 +10,10 @@ class FrontController extends Controller
 {
     public function home(){
     	$posts = Post::orderBy('id','DESC')->paginate(6);
-    	$recomendados = Post::join('categories','post.id_cat','=','categories.id')->select('post.*','categories.name as categoria')->where('post.recomendado','like',true)->get();
-    	$categorias = Cats::inRandomOrder()->limit(4)->get();
-
-        $nomCategoria= Cats::select('name')->inRandomOrder()->limit(1)->get();
-        $postByCat = Post::join('categories','post.id_cat','=','categories.id')->select('post.*')->where('categories.name','like',$nomCategoria[0]->name)->get();
+        $categorias = Cats::catsRadom(4);
+        $nomCategoria= Cats::catNameRandom();
+        $postByCat = Post::PostByRandom($nomCategoria[0]->name);
+        $recomendados = Post::top();
 
     	$parametros = [
     		'posts'=>$posts,
@@ -25,5 +24,21 @@ class FrontController extends Controller
     	];
 
     	return view('front.index',$parametros);
+    }
+
+    public function tags($tag){
+        $posts = Post::PostByTag($tag);
+        $categorias = Cats::catsRadom(4);
+        $nomCategoria= Cats::catNameRandom();
+        $postByCat = Post::PostByRandom($nomCategoria[0]->name);
+
+        $parametros = [
+            'posts'=>$posts,
+            'categorias'=>$categorias,
+            'nomCat' => $nomCategoria,
+            'postByCat'=>$postByCat,
+        ];
+        
+        return view('front.categories',$parametros);
     }
 }

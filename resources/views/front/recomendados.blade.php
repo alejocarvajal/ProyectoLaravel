@@ -1,6 +1,6 @@
 <div class="heading-news-box">
 				<div class="container">
-					<h1>Post Recomendados</h1>
+		<h1>Post recomendados</h1>
 				</div>
 				<div class="owl-wrapper">
 					<div class="owl-carousel" data-num="4">
@@ -14,8 +14,9 @@
 				                        <img src="/uploads/{{$recomendado->path}}" style="width: 337px; height: 361px"/>
 				                  @endif
 									<div class="hover-box">
+
 										<div class="inner-hover">
-											<a class="category-post" href="game-category.html">{{ $recomendado->categoria }}</a>
+								<a class="category-post" href="{{ route('categorias.show',$recomendado->CatSlug) }}">{{ $recomendado->categoria }}</a>
 											<h2><a href="{{ route('post.show',$recomendado->slug) }}">{!! $recomendado->title !!}</a></h2>
 											<ul class="post-tags">
 												<li><i class="fa fa-clock-o"></i>@php
@@ -27,6 +28,7 @@
 												{!! substr($recomendado->content,0,100) !!}
 											</p>
 										</div>
+							
 									</div>
 								</div>
 							</div>

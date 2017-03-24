@@ -100,8 +100,19 @@ class PostController extends Controller
      */
     public function show($value)
     {
-        $post = Post::join('categories','post.id_cat','=','categories.id')->select('post.*','categories.name as categoria')->where('post.slug','like',$value)->first();
-        return view('front.show',['post'=>$post]);
+        $nomCategoria= Cats::catNameRandom();
+        $postByCat = Post::PostByRandom($nomCategoria[0]->name);
+        $random = Post::random(5);
+        $post = Post::myPost($value);
+
+
+        $parametros = [
+            'post'=>$post,
+            'nomCat' => $nomCategoria,
+            'postByCat'=>$postByCat,
+            'random' => $random,
+        ];
+        return view('front.show',$parametros);
     }
 
     /**

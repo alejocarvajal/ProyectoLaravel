@@ -19,6 +19,8 @@ use Carbon\Carbon;
 
 Route::get('/','FrontController@home');
 
+Route::get('/tags/{tag}','FrontController@tags');
+
 Route::get('admin/home', function(){
 	return view('admin.home');
 });

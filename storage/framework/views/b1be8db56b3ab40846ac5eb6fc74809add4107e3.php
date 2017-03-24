@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Admin News game</title>
+
     <?php echo Html::style('css/bootstrap.min.css'); ?>
 
     <?php echo Html::style('css/metisMenu.min.css'); ?>
@@ -14,6 +15,9 @@
     <?php echo Html::style('css/sb-admin-2.css'); ?>
 
     <?php echo Html::style('css/font-awesome.min.css'); ?>
+
+
+    <?php echo Html::script('js/jquery.min.js'); ?>
 
 
 </head>
@@ -42,7 +46,7 @@
                         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#" data-toggle="modal" data-target='#modal-user'><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        <li><a href="#" data-toggle="modal" data-target="#modal-user"><i class="fa fa-user fa-fw"></i> User Profile</a>
                         </li>
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
@@ -53,6 +57,7 @@
                                 document.getElementById('logout-form').submit();">
                                 Logout
                             </a>
+
                             <form id="logout-form" action="<?php echo e(url('/logout')); ?>" method="POST" style="display: none;">
                                 <?php echo e(csrf_field()); ?>
 
@@ -101,7 +106,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <?php if(Auth::user()->id_rol==1): ?>
+                        <?php if(Auth::user()->id_rol<3): ?>
                             <li>
                                 <a href="#"><i class="fa fa-file fa-fw"></i> Archivos<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
@@ -130,18 +135,16 @@
     
 
     
-
-</body>
-<?php echo Html::script('js/jquery.min.js'); ?>
-
     <?php echo Html::script('js/bootstrap.min.js'); ?>
 
     <?php echo Html::script('js/metisMenu.min.js'); ?>
 
     <?php echo Html::script('js/sb-admin-2.js'); ?>
 
+    <?php echo Html::script('ckeditor/ckeditor.js'); ?>    
     <?php echo Html::script('js/miScript.js'); ?>
 
-    <?php echo Html::script('ckeditor/ckeditor.js'); ?>
+
+</body>
 
 </html>

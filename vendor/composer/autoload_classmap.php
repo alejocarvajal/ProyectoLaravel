@@ -16,6 +16,7 @@ return array(
     'CrearRoles' => $baseDir . '/database/migrations/2017_03_06_182456_CrearRoles.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreateTableCategories' => $baseDir . '/database/migrations/2017_01_13_012233_CreateTableCategories.php',
+    'CreateTableComents' => $baseDir . '/database/migrations/2017_03_24_214144_CreateTableComents.php',
     'CreateTablePost' => $baseDir . '/database/migrations/2017_01_26_025213_CreateTablePost.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',

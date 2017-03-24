@@ -15,7 +15,7 @@
 											@foreach ($postByCat as $PBC)
 												<li>
 					@if($PBC->path=='' || $PBC->path==null)
-														<img src="upload/news-posts/listw1.jpg" alt="">
+					<img src="/upload/news-posts/listw1.jpg" alt="">
 													@else
 					<img src="/uploads/{{$PBC->path}}" style="width: 75px; height: 66px" />
 													@endif

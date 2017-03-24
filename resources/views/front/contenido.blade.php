@@ -10,7 +10,7 @@
 								<ul class="category-filter-posts">
 			<li><a class="active" href="#">All</a></li>
 									@foreach ($categorias as $cats)
-										<li><a href="#">{{$cats->name}}</a></li>
+										<li><a href="{{ route('categorias.show',$cats->slug) }}">{{$cats->name}}</a></li>
 									@endforeach
 								</ul>
 
@@ -19,9 +19,9 @@
 											<div class="news-post standard-post2">
 												<div class="post-gallery">
 												@if (empty($post->path))
-													<img src="upload/news-posts/1.jpg" alt="">
+													<img src="/upload/news-posts/1.jpg" alt="">
 												@else
-				<img src="uploads/{{ $post->path }}" alt="" style="width: 750px; height: 195px;">
+				<img src="/uploads/{{ $post->path }}" alt="" style="width: 750px; height: 195px;">
 												@endif													
 												</div>
 												<div class="post-title">
@@ -47,9 +47,9 @@
 														<div class="col-sm-4">
 															<div class="post-gallery">
 																@if (empty($post->path))
-					<img alt="" src="upload/news-posts/art1.jpg">
+					<img alt="" src="/upload/news-posts/art1.jpg">
 																@else
-					<img src="uploads/{{ $post->path }}" alt="" style="width: 229px; height: 127px;">
+					<img src="/uploads/{{ $post->path }}" alt="" style="width: 229px; height: 127px;">
 																@endif
 															</div>
 														</div>
