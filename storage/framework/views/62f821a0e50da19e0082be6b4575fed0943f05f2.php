@@ -16,6 +16,9 @@
 	<?php echo Form::label('recomendado','Post recomendado'); ?>		
 	<?php echo e(Form::checkbox('recomendado')); ?>	
 
+	<?php echo Form::label('privado','Post privado'); ?>		
+	<?php echo e(Form::checkbox('privado')); ?>	
+
 <br>
 	<?php echo Form::file('image'); ?>
 

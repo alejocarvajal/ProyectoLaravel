@@ -164,7 +164,8 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         MercurySeries\Flashy\FlashyServiceProvider::class,
-
+        Cornford\Googlmapper\MapperServiceProvider::class,
+        Caffeinated\Menus\MenusServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -232,6 +233,8 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'Flashy' => MercurySeries\Flashy\Flashy::class,
+        'Mapper' => Cornford\Googlmapper\Facades\MapperFacade::class,
+        'Menu' => Caffeinated\Menus\Facades\Menu::class,
 
     ],
 

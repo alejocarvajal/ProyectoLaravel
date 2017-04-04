@@ -11,6 +11,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
+    {!!Html::script('js/jquery.min.js')!!}
     <link href="/css/app.css" rel="stylesheet">
 
     <!-- Scripts -->
@@ -79,6 +80,7 @@
         </nav>
 
         @yield('content')
+        @include('flashy::message')
     </div>
 
     <!-- Scripts -->

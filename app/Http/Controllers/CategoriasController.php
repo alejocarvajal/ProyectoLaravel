@@ -28,6 +28,7 @@ class CategoriasController extends Controller
         $this->middleware('auth',['except'=>'show']);
         $this->middleware('visitanteMid',$this->visitanteMid);
         $this->middleware('escritorMid',$this->escritorMid);
+        $this->middleware('menuMid');
     }
 
     protected $rules = [

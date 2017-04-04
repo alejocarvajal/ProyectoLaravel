@@ -11,7 +11,7 @@ class Post extends Model
 
 
     public static function myPostsCats(){
-    	$posts  = DB::table('post')->join('categories','post.id_cat','=','categories.id')->select('post.id','post.title','post.slug','post.recomendado','categories.name')->paginate(10);
+    	$posts  = DB::table('post')->join('categories','post.id_cat','=','categories.id')->select('post.id','post.title','post.slug','post.recomendado','post.privado','categories.name')->paginate(10);
 
     	return $posts;
     }

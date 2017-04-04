@@ -18,8 +18,17 @@ use Carbon\Carbon;
 
 
 Route::get('/','FrontController@home');
+Route::get('/contacto','FrontController@contact');
+Route::post('/contacto/send','FrontController@send');
 
 Route::get('/tags/{tag}','FrontController@tags');
+Route::post('/comments','CommentsController@store');
+
+Route::get('/comentarios/{post}','CommentsController@index');
+
+Route::delete('/eliminarCom/{id}','CommentsController@destroy');
+
+
 
 Route::get('admin/home', function(){
 	return view('admin.home');

@@ -8,7 +8,10 @@
         "php": ">=5.6.4",
         "laravel/framework": "5.3.*",
         "laravelcollective/html": "^5.3.0",
-        "mercuryseries/flashy": "^1.0"
+        "mercuryseries/flashy": "^1.0",
+        "guzzlehttp/guzzle": "^6.2",
+        "cornford/googlmapper": "2.*",
+        "caffeinated/menus": "^3.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

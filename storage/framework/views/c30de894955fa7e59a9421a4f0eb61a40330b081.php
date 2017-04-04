@@ -17,7 +17,9 @@
 
 										<div class="inner-hover">
 								<a class="category-post" href="<?php echo e(route('categorias.show',$recomendado->CatSlug)); ?>"><?php echo e($recomendado->categoria); ?></a>
-											<h2><a href="<?php echo e(route('post.show',$recomendado->slug)); ?>"><?php echo $recomendado->title; ?></a></h2>
+											<h2><a href="<?php echo e(route('post.show',$recomendado->slug)); ?>"><?php if($recomendado->privado == true): ?>
+				<i class="fa fa-lock fa-2x"></i>
+			<?php endif; ?><?php echo $recomendado->title; ?></a></h2>
 											<ul class="post-tags">
 												<li><i class="fa fa-clock-o"></i><?php 
 													$date = new DateTime($recomendado->created_at);

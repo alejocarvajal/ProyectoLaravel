@@ -55,5 +55,6 @@ class Kernel extends HttpKernel
         'adminMid' => \NewsGame\Http\Middleware\AdminMid::class,
         'visitanteMid' => \NewsGame\Http\Middleware\visitanteMid::class,
         'escritorMid'=>\NewsGame\Http\Middleware\EscritorMid::class,
+        'menuMid'=>\NewsGame\Http\Middleware\MenuMid::class,
     ];
 }

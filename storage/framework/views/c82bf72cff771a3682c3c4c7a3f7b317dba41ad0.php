@@ -25,7 +25,10 @@
 												<?php endif; ?>													
 												</div>
 												<div class="post-title">
-													<h2><a href="<?php echo e(route('post.show',$post->slug)); ?>"><?php echo e($post->title); ?></a></h2>
+													<h2><a href="<?php echo e(route('post.show',$post->slug)); ?>"><?php if($post->privado == true): ?>
+													<i class="fa fa-lock fa-2x"></i>
+													<?php endif; ?>
+													<?php echo e($post->title); ?></a></h2>
 													<ul class="post-tags">
 			<li><i class="fa fa-clock-o"></i><?php 
 															$date = new DateTime($post->created_at);
@@ -55,7 +58,10 @@
 														</div>
 														<div class="col-sm-8">
 															<div class="post-content">
-																<h2><a href="<?php echo e(route('post.show',$post->slug)); ?>"><?php echo e($post->title); ?></a></h2>
+																<h2><a href="<?php echo e(route('post.show',$post->slug)); ?>"><?php if($post->privado == true): ?>
+																<i class="fa fa-lock fa-2x"></i>
+																<?php endif; ?>
+																<?php echo e($post->title); ?></a></h2>
 																<ul class="post-tags">
 					<li><i class="fa fa-clock-o"></i><?php 
 																		$date = new DateTime($post->created_at);

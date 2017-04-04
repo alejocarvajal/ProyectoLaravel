@@ -8,7 +8,7 @@ use NewsGame\Post;
 use Illuminate\Validation\Rule;
 use Flashy;
 use DB;
-
+use Auth;
 
 class PostController extends Controller
 {
@@ -37,6 +37,7 @@ class PostController extends Controller
         $this->middleware('auth',['except'=>'show']);
         $this->middleware('visitanteMid',$this->visitanteMid);
         $this->middleware('escritorMid',$this->escritorMid);
+        $this->middleware('menuMid');
     }
 
     public function index()
@@ -78,6 +79,11 @@ class PostController extends Controller
             $post->recomendado = $request->recomendado;
         }
 
+        if(empty($request->privado)){
+            $post->privado = 0;
+        }else{
+            $post->privado = $request->privado;
+        }
 
         if($request->file('image')==null){
             $post->path = "";
@@ -100,19 +106,26 @@ class PostController extends Controller
      */
     public function show($value)
     {
-        $nomCategoria= Cats::catNameRandom();
-        $postByCat = Post::PostByRandom($nomCategoria[0]->name);
-        $random = Post::random(5);
         $post = Post::myPost($value);
+        if(($post->privado== true && Auth::check()) || $post->privado == false){
+            $nomCategoria= Cats::catNameRandom();
+            $postByCat = Post::PostByRandom($nomCategoria[0]->name);
+            $random = Post::random(5);
+            
 
 
-        $parametros = [
-            'post'=>$post,
-            'nomCat' => $nomCategoria,
-            'postByCat'=>$postByCat,
-            'random' => $random,
-        ];
-        return view('front.show',$parametros);
+            $parametros = [
+                'post'=>$post,
+                'nomCat' => $nomCategoria,
+                'postByCat'=>$postByCat,
+                'random' => $random,
+            ];
+            return view('front.show',$parametros);
+        }else{
+            Flashy::message('Lo sentimos este post es solo para usuarios registradoss');
+            return redirect('/register');
+        }
+        
     }
 
     /**
@@ -151,7 +164,11 @@ class PostController extends Controller
         }else{
             $post->recomendado = $request->recomendado;
         }
-
+        if(empty($request->privado)){
+            $post->privado = 0;
+        }else{
+            $post->privado = $request->privado;
+        }
         if($request->file('image')==null){
             $post->path = $post->path;
         }else{

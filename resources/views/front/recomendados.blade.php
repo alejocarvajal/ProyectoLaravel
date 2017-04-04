@@ -17,7 +17,9 @@
 
 										<div class="inner-hover">
 								<a class="category-post" href="{{ route('categorias.show',$recomendado->CatSlug) }}">{{ $recomendado->categoria }}</a>
-											<h2><a href="{{ route('post.show',$recomendado->slug) }}">{!! $recomendado->title !!}</a></h2>
+											<h2><a href="{{ route('post.show',$recomendado->slug) }}">@if ($recomendado->privado == true)
+				<i class="fa fa-lock fa-2x"></i>
+			@endif{!! $recomendado->title !!}</a></h2>
 											<ul class="post-tags">
 												<li><i class="fa fa-clock-o"></i>@php
 													$date = new DateTime($recomendado->created_at);

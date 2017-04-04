@@ -30,5 +30,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-
+public function routeNotificationForSlack(){
+    return 'https://hooks.slack.com/services/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';
+}
 }

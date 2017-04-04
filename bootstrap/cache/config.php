@@ -37,11 +37,13 @@
       20 => 'Illuminate\\Validation\\ValidationServiceProvider',
       21 => 'Illuminate\\View\\ViewServiceProvider',
       22 => 'Collective\\Html\\HtmlServiceProvider',
-      23 => 'NewsGame\\Providers\\AppServiceProvider',
-      24 => 'NewsGame\\Providers\\AuthServiceProvider',
-      25 => 'NewsGame\\Providers\\EventServiceProvider',
-      26 => 'NewsGame\\Providers\\RouteServiceProvider',
-      27 => 'MercurySeries\\Flashy\\FlashyServiceProvider',
+      23 => 'MercurySeries\\Flashy\\FlashyServiceProvider',
+      24 => 'Cornford\\Googlmapper\\MapperServiceProvider',
+      25 => 'Caffeinated\\Menus\\MenusServiceProvider',
+      26 => 'NewsGame\\Providers\\AppServiceProvider',
+      27 => 'NewsGame\\Providers\\AuthServiceProvider',
+      28 => 'NewsGame\\Providers\\EventServiceProvider',
+      29 => 'NewsGame\\Providers\\RouteServiceProvider',
     ),
     'aliases' => 
     array (
@@ -80,6 +82,8 @@
       'Form' => 'Collective\\Html\\FormFacade',
       'Html' => 'Collective\\Html\\HtmlFacade',
       'Flashy' => 'MercurySeries\\Flashy\\Flashy',
+      'Mapper' => 'Cornford\\Googlmapper\\Facades\\MapperFacade',
+      'Menu' => 'Caffeinated\\Menus\\Facades\\Menu',
     ),
   ),
   'auth' => 
@@ -291,6 +295,37 @@
         'region' => 'your-region',
         'bucket' => 'your-bucket',
       ),
+    ),
+  ),
+  'googlmapper' => 
+  array (
+    'enabled' => true,
+    'key' => 'AIzaSyAtqWsq5Ai3GYv6dSa6311tZiYKlbYT4mw',
+    'region' => 'GB',
+    'language' => 'es',
+    'async' => false,
+    'user' => false,
+    'marker' => true,
+    'center' => true,
+    'locate' => false,
+    'zoom' => 8,
+    'scrollWheelZoom' => true,
+    'fullscreenControl' => true,
+    'type' => 'ROADMAP',
+    'ui' => true,
+    'markers' => 
+    array (
+      'icon' => '',
+      'animation' => 'NONE',
+    ),
+    'cluster' => true,
+    'clusters' => 
+    array (
+      'icon' => '//googlemaps.github.io/js-marker-clusterer/images/m',
+      'grid' => 60,
+      'zoom' => NULL,
+      'center' => false,
+      'size' => 2,
     ),
   ),
   'mail' => 

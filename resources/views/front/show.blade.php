@@ -98,4 +98,10 @@
 				</div>
 			</div>
 		</section>
+
 @endsection
+
+@section('scriptAjax')
+{!! Html::script('js/scriptAjax.js') !!}
+@endsection
+

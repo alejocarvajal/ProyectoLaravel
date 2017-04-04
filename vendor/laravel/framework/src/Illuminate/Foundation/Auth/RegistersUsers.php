@@ -5,8 +5,7 @@ namespace Illuminate\Foundation\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\Registered;
-use Mail;
-use NewsGame\Mail\BienvenidaMail;
+
 trait RegistersUsers
 {
     use RedirectsUsers;
@@ -34,7 +33,7 @@ trait RegistersUsers
         event(new Registered($user = $this->create($request->all())));
 
         $this->guard()->login($user);
-        Mail::to($request->email)->send(new BienvenidaMail);
+
         return $this->registered($request, $user)
             ?: redirect($this->redirectPath());
     }

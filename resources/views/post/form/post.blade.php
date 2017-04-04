@@ -11,6 +11,9 @@
 	{!!Form::label('recomendado','Post recomendado')!!}		
 	{{ Form::checkbox('recomendado') }}	
 
+	{!!Form::label('privado','Post privado')!!}		
+	{{ Form::checkbox('privado') }}	
+
 <br>
 	{!!Form::file('image')!!}
 <br>

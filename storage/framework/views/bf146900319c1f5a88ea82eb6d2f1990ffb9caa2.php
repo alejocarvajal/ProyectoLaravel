@@ -4,9 +4,15 @@
 	<tr><th>Nombre</th><th>Slug</th><th>Recomendado</th><th>Categoria</th><?php if(Auth::user()->id_rol < 2): ?><th>Opciones</th><?php endif; ?></tr>
 	<?php $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
 		<tr>
-			<td><?php echo e($post->title); ?></td>
+			<td><?php if($post->privado == true): ?>
+				<i class="fa fa-lock fa-2x"></i>
+			<?php endif; ?><?php echo e($post->title); ?> </td>
 			<td><?php echo e($post->slug); ?></td>
-			<td><?php echo e($post->recomendado); ?></td>
+			<td><?php if($post->recomendado): ?>
+				<i class="fa fa-check"></i>
+				<?php else: ?>
+				<i class="fa fa-times"></i>
+				<?php endif; ?></td>
 			<td><?php echo e($post->name); ?></td>
 			<?php if(Auth::user()->id_rol<2): ?>
 				<td>

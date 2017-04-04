@@ -99,6 +99,13 @@
 				</div>
 			</div>
 		</section>
+
 <?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('scriptAjax'); ?>
+<?php echo Html::script('js/scriptAjax.js'); ?>
+
+<?php $__env->stopSection(); ?>
+
 
 <?php echo $__env->make('front.principal', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

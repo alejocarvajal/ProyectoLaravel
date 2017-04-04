@@ -11,6 +11,8 @@
     <title><?php echo e(config('app.name', 'Laravel')); ?></title>
 
     <!-- Styles -->
+    <?php echo Html::script('js/jquery.min.js'); ?>
+
     <link href="/css/app.css" rel="stylesheet">
 
     <!-- Scripts -->
@@ -81,6 +83,7 @@
         </nav>
 
         <?php echo $__env->yieldContent('content'); ?>
+        <?php echo $__env->make('flashy::message', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
     </div>
 
     <!-- Scripts -->

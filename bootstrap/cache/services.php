@@ -24,11 +24,13 @@
     20 => 'Illuminate\\Validation\\ValidationServiceProvider',
     21 => 'Illuminate\\View\\ViewServiceProvider',
     22 => 'Collective\\Html\\HtmlServiceProvider',
-    23 => 'NewsGame\\Providers\\AppServiceProvider',
-    24 => 'NewsGame\\Providers\\AuthServiceProvider',
-    25 => 'NewsGame\\Providers\\EventServiceProvider',
-    26 => 'NewsGame\\Providers\\RouteServiceProvider',
-    27 => 'MercurySeries\\Flashy\\FlashyServiceProvider',
+    23 => 'MercurySeries\\Flashy\\FlashyServiceProvider',
+    24 => 'Cornford\\Googlmapper\\MapperServiceProvider',
+    25 => 'Caffeinated\\Menus\\MenusServiceProvider',
+    26 => 'NewsGame\\Providers\\AppServiceProvider',
+    27 => 'NewsGame\\Providers\\AuthServiceProvider',
+    28 => 'NewsGame\\Providers\\EventServiceProvider',
+    29 => 'NewsGame\\Providers\\RouteServiceProvider',
   ),
   'eager' => 
   array (
@@ -42,11 +44,12 @@
     7 => 'Illuminate\\Pagination\\PaginationServiceProvider',
     8 => 'Illuminate\\Session\\SessionServiceProvider',
     9 => 'Illuminate\\View\\ViewServiceProvider',
-    10 => 'NewsGame\\Providers\\AppServiceProvider',
-    11 => 'NewsGame\\Providers\\AuthServiceProvider',
-    12 => 'NewsGame\\Providers\\EventServiceProvider',
-    13 => 'NewsGame\\Providers\\RouteServiceProvider',
-    14 => 'MercurySeries\\Flashy\\FlashyServiceProvider',
+    10 => 'MercurySeries\\Flashy\\FlashyServiceProvider',
+    11 => 'Cornford\\Googlmapper\\MapperServiceProvider',
+    12 => 'NewsGame\\Providers\\AppServiceProvider',
+    13 => 'NewsGame\\Providers\\AuthServiceProvider',
+    14 => 'NewsGame\\Providers\\EventServiceProvider',
+    15 => 'NewsGame\\Providers\\RouteServiceProvider',
   ),
   'deferred' => 
   array (
@@ -141,6 +144,7 @@
     'form' => 'Collective\\Html\\HtmlServiceProvider',
     'Collective\\Html\\HtmlBuilder' => 'Collective\\Html\\HtmlServiceProvider',
     'Collective\\Html\\FormBuilder' => 'Collective\\Html\\HtmlServiceProvider',
+    'menu' => 'Caffeinated\\Menus\\MenusServiceProvider',
   ),
   'when' => 
   array (
@@ -181,6 +185,9 @@
     array (
     ),
     'Collective\\Html\\HtmlServiceProvider' => 
+    array (
+    ),
+    'Caffeinated\\Menus\\MenusServiceProvider' => 
     array (
     ),
   ),
