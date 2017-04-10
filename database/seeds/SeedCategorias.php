@@ -11,8 +11,8 @@ class SeedCategorias extends Seeder
      */
     public function run()
     {
-        DB::table('Categorias')->delete();
-        DB::table('Categorias')->insert(
+        DB::table('categorias')->delete();
+        DB::table('categorias')->insert(
             [
                 ['name'=>'Aventura'],
                 ['name'=>'Terror'],
