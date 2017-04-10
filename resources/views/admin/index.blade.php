@@ -4,6 +4,16 @@
 		
 		
 		<h1 class="text-center text-uppercase">Estos son los usuarios registrados</h1>
+		<div class="form-inline">
+			{!! Form::model(Request::all(),['route'=>'admin.index','method'=>'get']) !!}
+			<div class="form-group">
+				<input type="text" name="search" class="form-control" placeholder="Buscar.."></input>
+				{!!Form::select('type',$roles,null,['class'=>'form-control','placeholder'=>'Seleccione rol de su usuario'])!!}
+				{!! Form::submit('Buscar',['class'=>'btn btn-info']) !!}
+			</div>
+			{!! Form::close()!!}
+		</div>
+		<hr>
 		<table class="table table-hover">
 			<th>Imagen</th><th>nombre</th><th>Rol</th><th>Email</th><th>Opciones</th>
 			@foreach($usuarios as $usuario)

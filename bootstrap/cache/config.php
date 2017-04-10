@@ -40,10 +40,11 @@
       23 => 'MercurySeries\\Flashy\\FlashyServiceProvider',
       24 => 'Cornford\\Googlmapper\\MapperServiceProvider',
       25 => 'Caffeinated\\Menus\\MenusServiceProvider',
-      26 => 'NewsGame\\Providers\\AppServiceProvider',
-      27 => 'NewsGame\\Providers\\AuthServiceProvider',
-      28 => 'NewsGame\\Providers\\EventServiceProvider',
-      29 => 'NewsGame\\Providers\\RouteServiceProvider',
+      26 => 'Greggilbert\\Recaptcha\\RecaptchaServiceProvider',
+      27 => 'NewsGame\\Providers\\AppServiceProvider',
+      28 => 'NewsGame\\Providers\\AuthServiceProvider',
+      29 => 'NewsGame\\Providers\\EventServiceProvider',
+      30 => 'NewsGame\\Providers\\RouteServiceProvider',
     ),
     'aliases' => 
     array (
@@ -84,6 +85,7 @@
       'Flashy' => 'MercurySeries\\Flashy\\Flashy',
       'Mapper' => 'Cornford\\Googlmapper\\Facades\\MapperFacade',
       'Menu' => 'Caffeinated\\Menus\\Facades\\Menu',
+      'Recaptcha' => 'Greggilbert\\Recaptcha\\Facades\\Recaptcha',
     ),
   ),
   'auth' => 
@@ -388,6 +390,18 @@
       'database' => 'mysql',
       'table' => 'failed_jobs',
     ),
+  ),
+  'recaptcha' => 
+  array (
+    'public_key' => '6Lc4rRsUAAAAADmkjrYFWFgOVn9rNKQUEivNiFbi',
+    'private_key' => '6Lc4rRsUAAAAAIfQF60Zcm08-Cpy_ALQrJzaYUCT',
+    'template' => '',
+    'driver' => 'curl',
+    'options' => 
+    array (
+      'curl_timeout' => 1,
+    ),
+    'version' => 2,
   ),
   'services' => 
   array (

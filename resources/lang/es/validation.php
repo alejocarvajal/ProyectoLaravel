@@ -62,6 +62,7 @@ return [
     'not_in'               => 'El campo :attribute seleccionado es invalido.',
     'numeric'              => 'El campo :attribute debe ser un numero.',
     'present'              => 'El campo :attribute debe estar presente.',
+    'recaptcha'            => 'The :attribute no es correcto.',
     'regex'                => 'El formato del campo :attribute es inválido.',
     'required'             => 'El campo :attribute es obligatorio',
     'required_if'          => 'El campo :attribute es obligatorio cuando el campo :other es :value.',
@@ -82,6 +83,7 @@ return [
     'timezone'             => 'El campo :attribute debe contener una zona válida.',
     'unique'               => 'El elemento :attribute ya está en uso.',
     'url'                  => 'El formato de :attribute no corresponde con el de una URL válida.',
+
 
     /*
     |--------------------------------------------------------------------------

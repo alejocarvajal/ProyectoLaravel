@@ -34,9 +34,9 @@ class AdminController extends Controller
 
     public function index(Request $request)
     {
-        $users = User::orderBy('id','DESC')->paginate(4);
-        
-        return view('admin.index',['usuarios'=>$users]);
+        $users = User::searchMode($request->search,$request->type);
+        $roles = DB::table('roles')->pluck('name','id');
+        return view('admin.index',['usuarios'=>$users,'roles'=>$roles]);
     }
 
     /**

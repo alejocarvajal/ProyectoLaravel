@@ -166,6 +166,7 @@ return [
         MercurySeries\Flashy\FlashyServiceProvider::class,
         Cornford\Googlmapper\MapperServiceProvider::class,
         Caffeinated\Menus\MenusServiceProvider::class,
+        Greggilbert\Recaptcha\RecaptchaServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -235,6 +236,7 @@ return [
         'Flashy' => MercurySeries\Flashy\Flashy::class,
         'Mapper' => Cornford\Googlmapper\Facades\MapperFacade::class,
         'Menu' => Caffeinated\Menus\Facades\Menu::class,
+        'Recaptcha' => Greggilbert\Recaptcha\Facades\Recaptcha::class,
 
     ],
 

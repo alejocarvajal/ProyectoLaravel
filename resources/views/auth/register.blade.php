@@ -59,7 +59,10 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
-
+                        <div class="col-md-offset-4">
+                            {{ $errors->has('g-recaptcha-response') ? 'Este campo es obligatorio' : '' }}
+                            {!! Recaptcha::render() !!}
+                        </div>
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
