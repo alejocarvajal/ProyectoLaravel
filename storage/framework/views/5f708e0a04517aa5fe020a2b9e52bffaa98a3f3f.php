@@ -6,5 +6,4 @@
 			<br>
 		<?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
 	</div>
-
 <?php endif; ?>

@@ -6,6 +6,7 @@ use NewsGame\User;
 use Validator;
 use NewsGame\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use NewsGame\Mail\BienvenidaMail;
 
 class RegisterController extends Controller
 {
@@ -27,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/admin';
 
     /**
      * Create a new controller instance.
@@ -51,6 +52,7 @@ class RegisterController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
+            'g-recaptcha-response' => 'required',
         ]);
     }
 
@@ -66,6 +68,9 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'path'=>"",
         ]);
+
+       
     }
 }

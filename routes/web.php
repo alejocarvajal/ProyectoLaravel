@@ -10,25 +10,43 @@
 | to using a Closure or controller method. Build something great!
 |
 */
+use Illuminate\Http\Request;
 use Carbon\Carbon;
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/hola/{nombre?}',function($nombre='usuario') {
-	return view("hola",['nombre'=>$nombre]);
+
+
+
+Route::get('/','FrontController@home');
+Route::get('/contacto','FrontController@contact');
+Route::post('/contacto/send','FrontController@send');
+
+Route::get('/tags/{tag}','FrontController@tags');
+Route::post('/comments','CommentsController@store');
+
+Route::get('/comentarios/{post}','CommentsController@index');
+
+Route::delete('/eliminarCom/{id}','CommentsController@destroy');
+
+
+
+Route::get('admin/home', function(){
+	return view('admin.home');
 });
 
 Route::resource('/admin','AdminController');
-Route:: resource('/categorias','Categorias');
+Route::resource('/categorias','CategoriasController');
 Route::resource('/post','PostController');
 
-Route::get('/subir',function() {
-	return view("subir");
-});
-Route::post('storage',function(){
-	$id = 1;
-	$path = request()->file('image')->storeas('users/'.$id,'avatar'.Carbon::now()->second.'jpg');
-	return 'Todo Ok '.$path;
-});
+
+
+Route::get('subir','FilesController@list');
+Route::get('subir/up','FilesController@up');
+Route::get('subir/destroy/{id}','FilesController@destroy');
+Route::post('subir/storage','FilesController@storage');
+
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');

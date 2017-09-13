@@ -52,5 +52,9 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \NewsGame\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'adminMid' => \NewsGame\Http\Middleware\AdminMid::class,
+        'visitanteMid' => \NewsGame\Http\Middleware\visitanteMid::class,
+        'escritorMid'=>\NewsGame\Http\Middleware\EscritorMid::class,
+        'menuMid'=>\NewsGame\Http\Middleware\MenuMid::class,
     ];
 }

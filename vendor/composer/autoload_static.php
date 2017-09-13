@@ -12,11 +12,13 @@ class ComposerStaticInite07db2eca9ed58ba9dd48ea8c4ec55ac
         '1d1b89d124cc9cb8219922c9d5569199' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest.php',
         '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
-        'bd9634f2d41831496de0d3dfe4c94881' => __DIR__ . '/..' . '/symfony/polyfill-php56/bootstrap.php',
-        'e7223560d890eab89cda23685e711e2c' => __DIR__ . '/..' . '/psy/psysh/src/Psy/functions.php',
+        'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
+        'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
+        'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
+        '974ce3986b2f81344d3ce484b96c08e6' => __DIR__ . '/..' . '/mercuryseries/flashy/src/MercurySeries/Flashy/functions.php',
+        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
-        'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -24,18 +26,16 @@ class ComposerStaticInite07db2eca9ed58ba9dd48ea8c4ec55ac
         array (
             'phpDocumentor\\Reflection\\' => 25,
         ),
-        'X' => 
-        array (
-            'XdgBaseDir\\' => 11,
-        ),
         'W' => 
         array (
             'Webmozart\\Assert\\' => 17,
         ),
+        'T' => 
+        array (
+            'TijsVerkoyen\\CssToInlineStyles\\' => 31,
+        ),
         'S' => 
         array (
-            'Symfony\\Polyfill\\Util\\' => 22,
-            'Symfony\\Polyfill\\Php56\\' => 23,
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Component\\Yaml\\' => 23,
             'Symfony\\Component\\VarDumper\\' => 28,
@@ -51,7 +51,6 @@ class ComposerStaticInite07db2eca9ed58ba9dd48ea8c4ec55ac
             'Symfony\\Component\\CssSelector\\' => 30,
             'Symfony\\Component\\Console\\' => 26,
             'Symfony\\Component\\ClassLoader\\' => 30,
-            'SuperClosure\\' => 13,
         ),
         'R' => 
         array (
@@ -59,9 +58,8 @@ class ComposerStaticInite07db2eca9ed58ba9dd48ea8c4ec55ac
         ),
         'P' => 
         array (
-            'Psy\\' => 4,
             'Psr\\Log\\' => 8,
-            'PhpParser\\' => 10,
+            'Psr\\Http\\Message\\' => 17,
         ),
         'N' => 
         array (
@@ -79,6 +77,13 @@ class ComposerStaticInite07db2eca9ed58ba9dd48ea8c4ec55ac
         array (
             'Illuminate\\' => 11,
         ),
+        'G' => 
+        array (
+            'GuzzleHttp\\Psr7\\' => 16,
+            'GuzzleHttp\\Promise\\' => 19,
+            'GuzzleHttp\\' => 11,
+            'Greggilbert\\Recaptcha\\' => 22,
+        ),
         'F' => 
         array (
             'Faker\\' => 6,
@@ -93,8 +98,8 @@ class ComposerStaticInite07db2eca9ed58ba9dd48ea8c4ec55ac
         array (
             'Cron\\' => 5,
             'Collective\\Html\\' => 16,
-            'ClassPreloader\\' => 15,
             'Carbon\\' => 7,
+            'Caffeinated\\Menus\\' => 18,
         ),
         'B' => 
         array (
@@ -109,21 +114,13 @@ class ComposerStaticInite07db2eca9ed58ba9dd48ea8c4ec55ac
             1 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
         ),
-        'XdgBaseDir\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/dnoegel/php-xdg-base-dir/src',
-        ),
         'Webmozart\\Assert\\' => 
         array (
             0 => __DIR__ . '/..' . '/webmozart/assert/src',
         ),
-        'Symfony\\Polyfill\\Util\\' => 
+        'TijsVerkoyen\\CssToInlineStyles\\' => 
         array (
-            0 => __DIR__ . '/..' . '/symfony/polyfill-util',
-        ),
-        'Symfony\\Polyfill\\Php56\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/polyfill-php56',
+            0 => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src',
         ),
         'Symfony\\Polyfill\\Mbstring\\' => 
         array (
@@ -185,25 +182,17 @@ class ComposerStaticInite07db2eca9ed58ba9dd48ea8c4ec55ac
         array (
             0 => __DIR__ . '/..' . '/symfony/class-loader',
         ),
-        'SuperClosure\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/jeremeamia/SuperClosure/src',
-        ),
         'Ramsey\\Uuid\\' => 
         array (
             0 => __DIR__ . '/..' . '/ramsey/uuid/src',
-        ),
-        'Psy\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/psy/psysh/src/Psy',
         ),
         'Psr\\Log\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
         ),
-        'PhpParser\\' => 
+        'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
+            0 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'NewsGame\\' => 
         array (
@@ -220,6 +209,22 @@ class ComposerStaticInite07db2eca9ed58ba9dd48ea8c4ec55ac
         'Illuminate\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate',
+        ),
+        'GuzzleHttp\\Psr7\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
+        ),
+        'GuzzleHttp\\Promise\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/promises/src',
+        ),
+        'GuzzleHttp\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
+        ),
+        'Greggilbert\\Recaptcha\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/greggilbert/recaptcha/src',
         ),
         'Faker\\' => 
         array (
@@ -245,13 +250,13 @@ class ComposerStaticInite07db2eca9ed58ba9dd48ea8c4ec55ac
         array (
             0 => __DIR__ . '/..' . '/laravelcollective/html/src',
         ),
-        'ClassPreloader\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/classpreloader/classpreloader/src',
-        ),
         'Carbon\\' => 
         array (
             0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
+        ),
+        'Caffeinated\\Menus\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/caffeinated/menus/src',
         ),
         'Barryvdh\\LaravelIdeHelper\\' => 
         array (
@@ -266,6 +271,10 @@ class ComposerStaticInite07db2eca9ed58ba9dd48ea8c4ec55ac
             array (
                 0 => __DIR__ . '/..' . '/phpspec/prophecy/src',
             ),
+            'Parsedown' => 
+            array (
+                0 => __DIR__ . '/..' . '/erusev/parsedown',
+            ),
         ),
         'M' => 
         array (
@@ -273,16 +282,9 @@ class ComposerStaticInite07db2eca9ed58ba9dd48ea8c4ec55ac
             array (
                 0 => __DIR__ . '/..' . '/mockery/mockery/library',
             ),
-        ),
-        'J' => 
-        array (
-            'JakubOnderka\\PhpConsoleHighlighter' => 
+            'MercurySeries\\Flashy' => 
             array (
-                0 => __DIR__ . '/..' . '/jakub-onderka/php-console-highlighter/src',
-            ),
-            'JakubOnderka\\PhpConsoleColor' => 
-            array (
-                0 => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src',
+                0 => __DIR__ . '/..' . '/mercuryseries/flashy/src',
             ),
         ),
         'D' => 
@@ -290,6 +292,13 @@ class ComposerStaticInite07db2eca9ed58ba9dd48ea8c4ec55ac
             'Doctrine\\Common\\Inflector\\' => 
             array (
                 0 => __DIR__ . '/..' . '/doctrine/inflector/lib',
+            ),
+        ),
+        'C' => 
+        array (
+            'Cornford\\Googlmapper' => 
+            array (
+                0 => __DIR__ . '/..' . '/cornford/googlmapper/src',
             ),
         ),
         'B' => 
@@ -302,17 +311,24 @@ class ComposerStaticInite07db2eca9ed58ba9dd48ea8c4ec55ac
     );
 
     public static $classMap = array (
-        'AddDatesCategorias' => __DIR__ . '/../..' . '/database/migrations/2017_02_05_230435_AddDatesCategorias.php',
-        'AgregandoCamposPath' => __DIR__ . '/../..' . '/database/migrations/2017_02_21_183105_agregandoCamposPath.php',
-        'AgregandoSoftDeletesUser' => __DIR__ . '/../..' . '/database/migrations/2017_01_25_183146_agregando_SoftDeletes_user.php',
+        'AddDatesCategories' => __DIR__ . '/../..' . '/database/migrations/2017_01_25_185235_AddDatesCategories.php',
+        'AgregandoCamposPath' => __DIR__ . '/../..' . '/database/migrations/2017_01_30_211407_agregandoCamposPath.php',
+        'AgregandoSoftDeletesUser' => __DIR__ . '/../..' . '/database/migrations/2017_01_11_043211_agregando_SoftDeletes_user.php',
+        'CampoRolesUser' => __DIR__ . '/../..' . '/database/migrations/2017_03_06_183134_CampoRolesUser.php',
+        'CreandoCamposBool' => __DIR__ . '/../..' . '/database/migrations/2017_03_11_172318_CreandoCamposBool.php',
+        'CreandoCamposSlugs' => __DIR__ . '/../..' . '/database/migrations/2017_01_27_015802_CreandoCamposSlugs.php',
+        'CreandoRolesSeeder' => __DIR__ . '/../..' . '/database/seeds/CreandoRolesSeeder.php',
+        'CrearRoles' => __DIR__ . '/../..' . '/database/migrations/2017_03_06_182456_CrearRoles.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
-        'CreateTableCategorias' => __DIR__ . '/../..' . '/database/migrations/2017_02_05_214823_CreateTableCategorias.php',
-        'CreateTablePost' => __DIR__ . '/../..' . '/database/migrations/2017_02_06_005258_CreateTablePost.php',
+        'CreateTableCategories' => __DIR__ . '/../..' . '/database/migrations/2017_01_13_012233_CreateTableCategories.php',
+        'CreateTableComents' => __DIR__ . '/../..' . '/database/migrations/2017_03_24_214144_CreateTableComents.php',
+        'CreateTablePost' => __DIR__ . '/../..' . '/database/migrations/2017_01_26_025213_CreateTablePost.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
         'File_Iterator_Facade' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Facade.php',
         'File_Iterator_Factory' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Factory.php',
+        'FilesTable' => __DIR__ . '/../..' . '/database/migrations/2017_02_27_182044_FilesTable.php',
         'Hamcrest\\Arrays\\IsArray' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArray.php',
         'Hamcrest\\Arrays\\IsArrayContaining' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArrayContaining.php',
         'Hamcrest\\Arrays\\IsArrayContainingInAnyOrder' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArrayContainingInAnyOrder.php',
@@ -382,9 +398,12 @@ class ComposerStaticInite07db2eca9ed58ba9dd48ea8c4ec55ac
         'Hamcrest\\Util' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
         'Hamcrest\\Xml\\HasXPath' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
         'PHPUnit\\Framework\\Assert' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/Assert.php',
+        'PHPUnit\\Framework\\AssertionFailedError' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/AssertionFailedError.php',
         'PHPUnit\\Framework\\BaseTestListener' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/BaseTestListener.php',
+        'PHPUnit\\Framework\\Test' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/Test.php',
         'PHPUnit\\Framework\\TestCase' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/TestCase.php',
         'PHPUnit\\Framework\\TestListener' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/TestListener.php',
+        'PHPUnit\\Framework\\TestSuite' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/TestSuite.php',
         'PHPUnit_Exception' => __DIR__ . '/..' . '/phpunit/phpunit/src/Exception.php',
         'PHPUnit_Extensions_GroupTestSuite' => __DIR__ . '/..' . '/phpunit/phpunit/src/Extensions/GroupTestSuite.php',
         'PHPUnit_Extensions_PhptTestCase' => __DIR__ . '/..' . '/phpunit/phpunit/src/Extensions/PhptTestCase.php',
@@ -689,6 +708,7 @@ class ComposerStaticInite07db2eca9ed58ba9dd48ea8c4ec55ac
         'PHP_Token_NEW' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_NS_C' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_NS_SEPARATOR' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
+        'PHP_Token_NULLSAFE_OBJECT_OPERATOR' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_NUM_STRING' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_OBJECT_CAST' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_OBJECT_OPERATOR' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
@@ -759,6 +779,7 @@ class ComposerStaticInite07db2eca9ed58ba9dd48ea8c4ec55ac
         'PHP_Token_XOR_EQUAL' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_YIELD' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_YIELD_FROM' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
+        'PathParaComments' => __DIR__ . '/../..' . '/database/migrations/2017_03_28_182707_PathParaComments.php',
         'SebastianBergmann\\CodeCoverage\\CodeCoverage' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/CodeCoverage.php',
         'SebastianBergmann\\CodeCoverage\\CoveredCodeNotExecutedException' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/Exception/CoveredCodeNotExecutedException.php',
         'SebastianBergmann\\CodeCoverage\\Driver\\Driver' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/Driver/Driver.php',
@@ -838,7 +859,7 @@ class ComposerStaticInite07db2eca9ed58ba9dd48ea8c4ec55ac
         'SebastianBergmann\\RecursionContext\\InvalidArgumentException' => __DIR__ . '/..' . '/sebastian/recursion-context/src/InvalidArgumentException.php',
         'SebastianBergmann\\ResourceOperations\\ResourceOperations' => __DIR__ . '/..' . '/sebastian/resource-operations/src/ResourceOperations.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
-        'SeedCategorias' => __DIR__ . '/../..' . '/database/seeds/SeedCategorias.php',
+        'SeedCategories' => __DIR__ . '/../..' . '/database/seeds/SeedCategories.php',
         'TestCase' => __DIR__ . '/../..' . '/tests/TestCase.php',
         'Text_Template' => __DIR__ . '/..' . '/phpunit/php-text-template/src/Template.php',
     );

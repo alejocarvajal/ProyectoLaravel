@@ -38,7 +38,7 @@ return [
     |
     */
 
-    'debug' => env('APP_DEBUG', false),
+    'debug' => env('APP_DEBUG', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -163,7 +163,10 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
-
+        MercurySeries\Flashy\FlashyServiceProvider::class,
+        Cornford\Googlmapper\MapperServiceProvider::class,
+        Caffeinated\Menus\MenusServiceProvider::class,
+        Greggilbert\Recaptcha\RecaptchaServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -178,8 +181,8 @@ return [
         // NewsGame\Providers\BroadcastServiceProvider::class,
         NewsGame\Providers\EventServiceProvider::class,
         NewsGame\Providers\RouteServiceProvider::class,
-        
 
+        
 
     ],
 
@@ -230,6 +233,10 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'Flashy' => MercurySeries\Flashy\Flashy::class,
+        'Mapper' => Cornford\Googlmapper\Facades\MapperFacade::class,
+        'Menu' => Caffeinated\Menus\Facades\Menu::class,
+        'Recaptcha' => Greggilbert\Recaptcha\Facades\Recaptcha::class,
 
     ],
 

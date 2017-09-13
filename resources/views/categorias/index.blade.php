@@ -1,22 +1,23 @@
 @extends('layouts.admin')
 
 @section('contenido')
-    {{session('mensaje')}}
-    <table class="table table-hoover">
-        <tr>
-            <th>Nombre</th>
-            <th>Opciones</th>
-        </tr>
-        @foreach($cats as $categorias)
-            <tr>
-                <td>{{$categorias->name}}</td>
-                <td>
-                    {!! link_to_route('categorias.edit',$title='Editar',$parameters=$categorias->id) !!}
-                    {!! Form::open(['route'=>['categorias.destroy',$categorias->id],'method'=>'DELETE']) !!}
-                     {!! Form::submit('Eliminar')!!}
-                    {!! Form::close() !!}
-                </td>
-            </tr>
-        @endforeach
-    </table>
+	<table class="table table-hover">
+		<tr><th>Nombre</th>@if(Auth::user()->id_rol<2) <th>Opciones</th> @endif</tr>
+		@foreach($cats as $category)
+			<tr>
+				<td>{{$category->name}}</td>
+				@if(Auth::user()->id_rol<2)
+					<td>
+					{!!link_to_route('categorias.edit',$title='Editar',$parameters=$category->id)!!}
+					 
+					 {!!Form::open(['route'=>['categorias.destroy',$category->id],'method'=>'DELETE'])!!}
+						{!!Form::submit('Eliminar',['class'=>'btn btn-danger'])!!}
+					{!!Form::close()!!}
+					
+				 	</td>
+				@endif
+			</tr>
+		@endforeach
+	</table>
+	{{$cats->links()}}
 @endsection

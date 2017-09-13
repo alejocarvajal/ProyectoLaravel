@@ -68,7 +68,7 @@
         <div class="flex-center position-ref full-height">
             <div class="content">
                 <div class="title m-b-md">
-                    Hola Mundo {{$nombre}} desde laravel
+                    Hola {{$nombre}} desde laravel
                 </div>
             </div>
         </div>
